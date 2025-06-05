@@ -1,63 +1,100 @@
 <header class="border-bottom">
   <!-- Main container -->
-  <div class="container" id="main-container">
-    <!-- Top row: Logo, Search, Heart, Cart -->
+  <div class="container px-0 px-sm-2" id="main-container">
+    <!-- Top section: Stacks on mobile, row on sm+ -->
     <div
-      class="d-flex justify-content-between align-items-center py-3"
+      class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-3"
       id="top-row"
     >
-      <!-- Logo container -->
-      <div id="logo-container">
-        <a href="/" class="text-decoration-none">
-          <h1 class="fw-bold fs-3 text-dark mb-0">Freaky Fashion</h1>
+      <!-- Logo container: Full width on mobile, auto on sm+ -->
+      <div
+        id="logo-container"
+        class="text-center text-sm-start w-100 w-sm-auto mb-3 mb-sm-0"
+      >
+        <a
+          href="/"
+          class="text-decoration-none d-inline-block w-100"
+          aria-label="Freaky Fashion startsida"
+        >
+          <img src="https://placehold.co/400x200" alt="Freaky Fashion Logo"
+          class="img-fluid w-100" ; object-fit: contain" />
         </a>
       </div>
 
-      <!-- Search and icons container -->
-      <div class="d-flex align-items-center" id="search-icons-container">
-        <!-- Search container -->
-        <div id="search-container">
-          <form action="/search" method="GET" class="d-flex me-3">
+      <!-- Search and icons container: Full width on mobile, auto on sm+ -->
+      <div
+        class="d-flex flex-column flex-sm-row align-items-center w-100 w-sm-auto"
+        id="search-icons-container"
+      >
+        <!-- Search container: Full width on mobile, auto on sm+ -->
+        <div
+          id="search-container"
+          class="w-100 w-sm-auto mb-3 mb-sm-0 px-3 px-sm-0"
+        >
+          <form action="/search" method="GET" class="d-flex me-sm-3">
             <input
               type="text"
               name="q"
               placeholder="Sök produkt"
               class="form-control me-2"
-              style="width: 200px"
             />
-            <button type="submit" class="btn btn-dark">
+            <button type="submit" class="btn btn-dark" aria-label="Sök">
               <i class="fas fa-search"></i>
             </button>
           </form>
         </div>
 
-        <!-- Icons container -->
-        <div class="d-flex" id="icons-container">
-          <!-- Heart icon -->
+        <!-- Icons container: Centered on mobile, end on sm+ -->
+        <div
+          class="d-flex justify-content-center justify-content-sm-end"
+          id="icons-container"
+        >
           <a
             href="#"
-            class="text-dark text-decoration-none me-3"
+            class="text-dark text-decoration-none mx-2 mx-sm-0 me-sm-3"
             id="heart-icon"
+            aria-label="Favoriter"
           >
             <i class="far fa-heart fs-5"></i>
           </a>
-
-          <!-- Cart icon -->
-          <a href="#" class="text-dark text-decoration-none" id="cart-icon">
+          <a
+            href="#"
+            class="text-dark text-decoration-none mx-2 mx-sm-0"
+            id="cart-icon"
+            aria-label="Varukorg"
+          >
             <i class="fas fa-shopping-cart fs-5"></i>
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Bottom row: Navigation links -->
-    <div id="navigation-row">
-      <nav class="border-top py-2" id="main-navigation">
-        <div class="d-flex justify-content-center" id="links-container">
-          <a href="#" class="text-decoration-none text-dark me-4">Nyheter</a>
-          <a href="#" class="text-decoration-none text-dark me-4">Topplistan</a>
-          <a href="#" class="text-decoration-none text-dark me-4">Rea</a>
-          <a href="#" class="text-decoration-none text-dark">Kampanjer</a>
+    <!-- Bottom row: Navigation links - Stacks on mobile, row on sm+ -->
+    <div id="navigation-row" class="border-top">
+      <nav class="py-2" id="main-navigation">
+        <!-- Links container: Column on mobile, row on sm+ -->
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-center align-items-center"
+          id="links-container"
+        >
+          <a
+            href="#"
+            class="text-decoration-none text-dark py-1 py-sm-0 me-sm-4"
+            >Nyheter</a
+          >
+          <a
+            href="#"
+            class="text-decoration-none text-dark py-1 py-sm-0 me-sm-4"
+            >Topplistan</a
+          >
+          <a
+            href="#"
+            class="text-decoration-none text-dark py-1 py-sm-0 me-sm-4"
+            >Rea</a
+          >
+          <a href="#" class="text-decoration-none text-dark py-1 py-sm-0"
+            >Kampanjer</a
+          >
         </div>
       </nav>
     </div>
