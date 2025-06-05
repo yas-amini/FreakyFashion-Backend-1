@@ -1,0 +1,35 @@
+<!-- Hero Container -->
+<section class="bg-light py-5" id="hero-section">
+  <div class="container" id="hero-wrapper">
+    <!-- Hero Row:  image and text  -->
+    <div class="row align-items-center" id="hero-content-row">
+      <!-- Image Column -->
+      <div class="col-lg-6 order-lg-2" id="hero-image-col">
+        <!-- Image Wrapper -->
+        <div id="hero-image-wrapper" class="text-center text-lg-start">
+          <img
+            src="<%= hero.image_url || '/placeholder.svg?height=350&width=500' %>"
+            alt="<%= hero.title || 'Freaky Fashion Hero' %>"
+            class="img-fluid rounded"
+            id="hero-img"
+          />
+        </div>
+      </div>
+
+      <!-- Text Content Column -->
+      <div class="col-lg-6 order-lg-1" id="hero-text-col">
+        <!-- Text Container -->
+        <div id="hero-text-container" class="text-center text-lg-start">
+          <!-- Heading -->
+          <h2 class="display-4 fw-bold mb-3" id="hero-heading">
+            <%= hero.title %>
+          </h2>
+          <!-- Paragraph -->
+          <p class="lead text-muted" id="hero-paragraph">
+            <%= hero.description %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
