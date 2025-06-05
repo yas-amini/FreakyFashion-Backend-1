@@ -1,4 +1,4 @@
--- database: c:\Users\User\Desktop\FreakyFashion-Backend 1\data\product-database.db
+-- database
 
 CREATE TABLE IF NOT EXISTS products (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,3 +48,20 @@ INSERT OR IGNORE INTO hero_content (title, description, image_url, button_text, 
  'Shopping',
  '#'
 );
+
+
+--spots
+
+DROP TABLE IF EXISTS spots;
+
+CREATE TABLE IF NOT EXISTS spots (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    text TEXT NOT NULL,    -- The text overlay
+    image TEXT,           -- The image URL
+    link TEXT             -- The link
+);
+
+INSERT OR IGNORE INTO spots (text, image, link) VALUES 
+('Nyheter', '/images/spots/spot1.jpg', '/new-arrivals'),
+('Rea', '/images/spots/spot2.jpg', '/sale'),
+('Topplistan', '/images/spots/spot3.jpg', '/top-list');

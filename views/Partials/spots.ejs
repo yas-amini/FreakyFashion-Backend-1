@@ -1,0 +1,50 @@
+<!-- Spots Section Container - Visible only on large screens (lg) and up -->
+<section class="container my-5 d-none d-lg-block" id="spots-section">
+  <!-- Spots Row: holds the three spot items -->
+  <div class="row" id="spots-row">
+    <% spots.forEach((spot, index) => { %>
+    <!-- Spot Item Column (each takes 1/3 of the row on lg screens) -->
+    <div class="col-lg-4" id="spot-item-col-<%= index %>">
+      <!-- Spot Link: makes the entire spot clickable -->
+      <a
+        href="<%= spot.link || '#' %>"
+        class="text-decoration-none d-block"
+        id="spot-link-<%= index %>"
+        aria-label="View details for <%= spot.text %>"
+      >
+        <!-- Spot Content Wrapper: for relative positioning of the overlay -->
+        <div class="position-relative" id="spot-content-wrapper-<%= index %>">
+          <!-- Spot Image -->
+          <div id="spot-image-wrapper-<%= index %>">
+            <img
+              src="<%= spot.image || '/placeholder.svg?height=250&width=350' %>"
+              alt="<%= spot.text || 'Promotional Spot ' + (index + 1) %>"
+              class="img-fluid rounded"
+              id="spot-img-<%= index %>"
+              style="height: 250px; width: 100%; object-fit: cover"
+            />
+          </div>
+          <!-- Spot Text Overlay -->
+          <div
+            class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center p-3"
+            id="spot-text-overlay-<%= index %>"
+            style="
+              background-color: rgba(0, 0, 0, 0.4);
+              border-radius: var(--bs-border-radius);
+            "
+          >
+            {/* Semi-transparent background */}
+            <!-- Spot Text -->
+            <h3
+              class="text-white text-center fw-bold"
+              id="spot-text-<%= index %>"
+            >
+              <%= spot.text %>
+            </h3>
+          </div>
+        </div>
+      </a>
+    </div>
+    <% }) %>
+  </div>
+</section>
