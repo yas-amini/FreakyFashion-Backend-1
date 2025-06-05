@@ -1,12 +1,12 @@
 <header class="border-bottom">
   <!-- Main container -->
-  <div class="container px-0 px-sm-2" id="main-container">
-    <!-- Top section: Stacks on mobile, row on sm+ -->
+  <div class="container-fluid px-0" id="main-container">
+    <!-- Top section -->
     <div
       class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-3"
       id="top-row"
     >
-      <!-- Logo container: Full width on mobile, auto on sm+ -->
+      <!-- Logo  -->
       <div
         id="logo-container"
         class="text-center text-sm-start w-100 w-sm-auto mb-3 mb-sm-0"
@@ -16,22 +16,23 @@
           class="text-decoration-none d-inline-block w-100"
           aria-label="Freaky Fashion startsida"
         >
-          <img src="https://placehold.co/400x200" alt="Freaky Fashion Logo"
-          class="img-fluid w-100" ; object-fit: contain" />
+          <img
+            src="https://placehold.co/400x200"
+            alt="Freaky Fashion Logo"
+            class="img-fluid w-100"
+            style="max-height: 50px; object-fit: contain"
+          />
         </a>
       </div>
 
-      <!-- Search and icons container: Full width on mobile, auto on sm+ -->
+      <!-- Search and icons-->
       <div
-        class="d-flex flex-column flex-sm-row align-items-center w-100 w-sm-auto"
+        class="d-flex flex-row justify-content-center w-100 w-sm-auto px-sm-4"
         id="search-icons-container"
       >
-        <!-- Search container: Full width on mobile, auto on sm+ -->
-        <div
-          id="search-container"
-          class="w-100 w-sm-auto mb-3 mb-sm-0 px-3 px-sm-0"
-        >
-          <form action="/search" method="GET" class="d-flex me-sm-3">
+        <!-- Search bar -->
+        <div id="search-container" class="me-3">
+          <form action="/search" method="GET" class="d-flex">
             <input
               type="text"
               name="q"
@@ -44,14 +45,11 @@
           </form>
         </div>
 
-        <!-- Icons container: Centered on mobile, end on sm+ -->
-        <div
-          class="d-flex justify-content-center justify-content-sm-end"
-          id="icons-container"
-        >
+        <!-- Icons -->
+        <div class="d-flex" id="icons-container">
           <a
             href="#"
-            class="text-dark text-decoration-none mx-2 mx-sm-0 me-sm-3"
+            class="text-dark text-decoration-none me-3"
             id="heart-icon"
             aria-label="Favoriter"
           >
@@ -59,7 +57,7 @@
           </a>
           <a
             href="#"
-            class="text-dark text-decoration-none mx-2 mx-sm-0"
+            class="text-dark text-decoration-none"
             id="cart-icon"
             aria-label="Varukorg"
           >
@@ -69,32 +67,15 @@
       </div>
     </div>
 
-    <!-- Bottom row: Navigation links - Stacks on mobile, row on sm+ -->
+    <!-- Navigation links -->
     <div id="navigation-row" class="border-top">
-      <nav class="py-2" id="main-navigation">
-        <!-- Links container: Column on mobile, row on sm+ -->
-        <div
-          class="d-flex flex-column flex-sm-row justify-content-center align-items-center"
-          id="links-container"
-        >
-          <a
-            href="#"
-            class="text-decoration-none text-dark py-1 py-sm-0 me-sm-4"
-            >Nyheter</a
-          >
-          <a
-            href="#"
-            class="text-decoration-none text-dark py-1 py-sm-0 me-sm-4"
-            >Topplistan</a
-          >
-          <a
-            href="#"
-            class="text-decoration-none text-dark py-1 py-sm-0 me-sm-4"
-            >Rea</a
-          >
-          <a href="#" class="text-decoration-none text-dark py-1 py-sm-0"
-            >Kampanjer</a
-          >
+      <nav class="py-2 px-4" id="main-navigation">
+        <!-- Links-->
+        <div class="d-flex flex-column align-items-start" id="links-container">
+          <a href="#" class="text-decoration-none text-dark py-1">Nyheter</a>
+          <a href="#" class="text-decoration-none text-dark py-1">Topplistan</a>
+          <a href="#" class="text-decoration-none text-dark py-1">Rea</a>
+          <a href="#" class="text-decoration-none text-dark py-1">Kampanjer</a>
         </div>
       </nav>
     </div>
