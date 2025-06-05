@@ -1,16 +1,65 @@
-<header>
-<!-- Main container -->
-    <div class="container" id="main-container">
-        
-        <!-- Top row: Logo, Search, Heart, Cart -->
-        <div class="d-flex justify-content-between align-items-center py-3" id="top-row">
-            
- 
-            <!-- Logo container -->
-            <div id="logo-container">
-                <a href="/" class="text-decoration-none">
-                    <h1 class="fw-bold fs-3 text-dark mb-0">Freaky Fashion</h1>
-                </a>
-            </div>
-</header>
+<header class="border-bottom">
+  <!-- Main container -->
+  <div class="container" id="main-container">
+    <!-- Top row: Logo, Search, Heart, Cart -->
+    <div
+      class="d-flex justify-content-between align-items-center py-3"
+      id="top-row"
+    >
+      <!-- Logo container -->
+      <div id="logo-container">
+        <a href="/" class="text-decoration-none">
+          <h1 class="fw-bold fs-3 text-dark mb-0">Freaky Fashion</h1>
+        </a>
+      </div>
 
+      <!-- Search and icons container -->
+      <div class="d-flex align-items-center" id="search-icons-container">
+        <!-- Search container -->
+        <div id="search-container">
+          <form action="/search" method="GET" class="d-flex me-3">
+            <input
+              type="text"
+              name="q"
+              placeholder="Sök produkt"
+              class="form-control me-2"
+              style="width: 200px"
+            />
+            <button type="submit" class="btn btn-dark">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Icons container -->
+        <div class="d-flex" id="icons-container">
+          <!-- Heart icon -->
+          <a
+            href="#"
+            class="text-dark text-decoration-none me-3"
+            id="heart-icon"
+          >
+            <i class="far fa-heart fs-5"></i>
+          </a>
+
+          <!-- Cart icon -->
+          <a href="#" class="text-dark text-decoration-none" id="cart-icon">
+            <i class="fas fa-shopping-cart fs-5"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row: Navigation links -->
+    <div id="navigation-row">
+      <nav class="border-top py-2" id="main-navigation">
+        <div class="d-flex justify-content-center" id="links-container">
+          <a href="#" class="text-decoration-none text-dark me-4">Nyheter</a>
+          <a href="#" class="text-decoration-none text-dark me-4">Topplistan</a>
+          <a href="#" class="text-decoration-none text-dark me-4">Rea</a>
+          <a href="#" class="text-decoration-none text-dark">Kampanjer</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
