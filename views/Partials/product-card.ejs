@@ -7,7 +7,7 @@
   <div class="card h-100 shadow-sm" id="product-card-<%= cardIdSuffix %>">
     <%# h-100 for equal height cards in a row, shadow-sm for subtle shadow %>
 
-    <!-- Image Wrapper: Relative position for heart icon overlay -->
+    <!-- Image Wrapper for heart icon overlay -->
     <div
       class="position-relative"
       id="product-card-image-wrapper-<%= cardIdSuffix %>"
@@ -20,7 +20,6 @@
         id="product-card-img-<%= cardIdSuffix %>"
         style="aspect-ratio: 5 / 6; object-fit: cover"
       />
-      <%# Maintain 5:6 aspect ratio %>
 
       <!-- Heart Icon Container: Absolute position, overlaying the image -->
       <div
@@ -34,7 +33,6 @@
           id="product-card-heart-btn-<%= cardIdSuffix %>"
           onclick="event.preventDefault(); alert('Favorit klickad för <%= product.name %>');"
         >
-          <%# Prevent link navigation on heart click %>
           <i
             class="far fa-heart text-danger"
             id="product-card-heart-icon-<%= cardIdSuffix %>"
@@ -48,7 +46,6 @@
       class="card-body d-flex flex-column"
       id="product-card-text-container-<%= cardIdSuffix %>"
     >
-      <%# d-flex flex-column for better content alignment if needed %>
       <!-- Product Name -->
       <h5
         class="card-title fs-6 mb-1"
