@@ -40,4 +40,39 @@ router.get("/", function (req, res, next) {
   );
 });
 
+/* GET product details page */
+router.get("/products/:id", function (req, res, next) {
+  const productId = req.params.id;
+
+  // Get the product details
+  db.get("SELECT * FROM products WHERE id = ?", [productId], (err, product) => {
+    if (err) {
+      console.error("Error fetching product:", err);
+      return res.status(500).send("Error fetching product");
+    }
+
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
+
+    // Get exactly 3 similar products (excluding the current product)
+    db.all(
+      "SELECT * FROM products WHERE id != ? ORDER BY RANDOM() LIMIT 3",
+      [productId],
+      (err, similarProducts) => {
+        if (err) {
+          console.error("Error fetching similar products:", err);
+          similarProducts = [];
+        }
+
+        res.render("product-details", {
+          title: product.name,
+          product: product,
+          similarProducts: similarProducts,
+        });
+      }
+    );
+  });
+});
+
 module.exports = router;

@@ -1,1 +1,74 @@
-<% layout('layout') %>
+<div class="container my-4 my-md-5" id="product-detail-page-container">
+  <!-- Main Product Details -->
+  <section id="product-detail-main-section" class="mb-4 mb-md-5">
+    <div class="row" id="product-detail-content-row">
+      <!-- Product Image Column -->
+      <div class="col-md-6 mb-4 mb-md-0" id="product-detail-image-column">
+        <div class="position-relative" id="product-detail-image-wrapper">
+          <img
+            src="<%= product.image_url || '/placeholder.svg?height=600&width=500' %>"
+            alt="<%= product.name %>"
+            class="img-fluid rounded shadow-sm"
+            id="product-detail-main-image"
+            style="aspect-ratio: 4 / 5; object-fit: cover; width: 100%"
+          />
+          <button
+            type="button"
+            class="btn btn-light btn-sm position-absolute bottom-0 end-0 m-2 rounded-circle"
+            id="product-detail-heart-button"
+            aria-label="Favoritmarkera <%= product.name %>"
+            onclick="event.preventDefault(); alert('Favorit klickad för <%= product.name %>');"
+          >
+            <!-- Heart Icon -->
+            <i
+              class="far fa-heart text-danger"
+              id="product-detail-heart-icon"
+            ></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Info Column -->
+      <div class="col-md-6" id="product-detail-info-column">
+        <div id="product-detail-text-content">
+          <h1 class="display-5 fw-bold mb-2" id="product-detail-name">
+            <%= product.name %>
+          </h1>
+          <p class="text-muted fs-5 mb-3" id="product-detail-brand">
+            <%= product.brand %>
+          </p>
+          <p class="mb-3" id="product-detail-description">
+            <%= product.description %>
+          </p>
+          <p class="display-6 fw-bold mb-4" id="product-detail-price">
+            <%= product.price %> SEK
+          </p>
+
+          <form action="#" method="POST" id="product-detail-add-to-cart-form">
+            <button
+              type="submit"
+              class="btn btn-dark btn-lg w-100 w-sm-auto"
+              id="product-detail-add-to-cart-button"
+              onclick="event.preventDefault(); alert('Knappen Lägg i varukorg klickad!');"
+            >
+              Lägg i varukorg
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Similar Products Section - Visible on screens ≥640px -->
+  <section id="similar-products-section" class="mb-4 mb-md-5 d-none d-sm-block">
+    <h2 class="mb-4" id="similar-products-heading">Liknande produkter</h2>
+    <div id="similar-products-grid-wrapper">
+      <%- include('partials/product-grid', { products: similarProducts }) %>
+    </div>
+  </section>
+
+  <!-- Site Features Section -->
+  <div id="product-detail-site-features-section">
+    <%- include('partials/site-features') %>
+  </div>
+</div>
