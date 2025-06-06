@@ -1,0 +1,116 @@
+<!-- Site Features  -->
+<section class="py-4 py-md-5" id="site-features-section">
+  <div class="container" id="site-features-wrapper">
+    <!-- Features Row-->
+    <div class="row text-center g-3 g-sm-4" id="site-features-row">
+      <!-- Feature Item 1: Gratis frakt och returer -->
+      <div class="col-12 col-custom" id="feature-item-shipping">
+        <a
+          href="#"
+          class="text-decoration-none text-dark d-block p-3 border rounded h-100"
+          id="feature-link-shipping"
+        >
+          <%# d-block p-3 border rounded h-100 for styling and equal height %>
+          <div id="feature-icon-wrapper-shipping">
+            <!-- Globe icon -->
+
+            <i
+              class="fas fa-globe-americas fs-2 mb-2"
+              id="feature-icon-shipping"
+            ></i>
+          </div>
+          <div id="feature-text-wrapper-shipping">
+            <p class="mb-0 fw-medium" id="feature-text-shipping">
+              Gratis frakt och returer
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Feature Item 2: Expressfrakt -->
+      <div class="col-12 col-custom" id="feature-item-express">
+        <a
+          href="#"
+          class="text-decoration-none text-dark d-block p-3 border rounded h-100"
+          id="feature-link-express"
+        >
+          <div id="feature-icon-wrapper-express">
+            <!-- Plane icon -->
+
+            <i class="fas fa-plane fs-2 mb-2" id="feature-icon-express"></i>
+          </div>
+          <div id="feature-text-wrapper-express">
+            <p class="mb-0 fw-medium" id="feature-text-express">Expressfrakt</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Feature Item 3: Säkra betalningar -->
+      <div class="col-12 col-custom" id="feature-item-payment">
+        <a
+          href="#"
+          class="text-decoration-none text-dark d-block p-3 border rounded h-100"
+          id="feature-link-payment"
+        >
+          <div id="feature-icon-wrapper-payment">
+            <!-- Shield icon -->
+            <i
+              class="fas fa-shield-alt fs-2 mb-2"
+              id="feature-icon-payment"
+            ></i>
+          </div>
+          <div id="feature-text-wrapper-payment">
+            <p class="mb-0 fw-medium" id="feature-text-payment">
+              Säkra betalningar
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Feature Item 4: Nyheter varje dag -->
+      <div class="col-12 col-custom" id="feature-item-news">
+        <a
+          href="#"
+          class="text-decoration-none text-dark d-block p-3 border rounded h-100"
+          id="feature-link-news"
+        >
+          <div id="feature-icon-wrapper-news">
+            <!-- Smile icon -->
+
+            <i class="far fa-smile fs-2 mb-2" id="feature-icon-news"></i>
+          </div>
+
+          <div id="feature-text-wrapper-news">
+            <p class="mb-0 fw-medium" id="feature-text-news">
+              Nyheter varje dag
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Mobile: <640px, 1 column (vertical stack) */
+  #site-features-row .col-custom {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  /* Tablet: ≥640px, 2 columns */
+  @media (min-width: 640px) {
+    #site-features-row .col-custom {
+      width: 50%;
+      flex: 0 0 50%;
+    }
+  }
+
+  /* Desktop: ≥1024px, 4 columns */
+  @media (min-width: 1024px) {
+    #site-features-row .col-custom {
+      width: 25%;
+      flex: 0 0 25%;
+    }
+  }
+</style>

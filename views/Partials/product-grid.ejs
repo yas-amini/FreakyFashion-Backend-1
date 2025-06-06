@@ -5,8 +5,31 @@
   <!-- Product Card Column -->
   <%# Responsive grid layout: - Mobile (<576px): 1 column (full width) - Tablet
   (≥576px): 2 columns - Desktop (≥992px): 4 columns %>
-  <div class="col-12 col-sm-6 col-lg-3" id="product-item-col-<%= index %>">
+  <div class="col-12 col-custom" id="product-item-col-<%= index %>">
     <%- include('product-card', { product: product, cardIdSuffix: index }) %>
   </div>
   <% }) %>
 </div>
+
+<style>
+  /* ---Mobile: <640px, 1 column--- */
+  #product-grid-main-container .col-custom {
+    width: 100%;
+  }
+
+  /*---Tablet: ≥640px, 2 columns--- */
+  @media (min-width: 640px) {
+    #product-grid-main-container .col-custom {
+      width: 50%;
+      flex: 0 0 50%;
+    }
+  }
+
+  /* ---Desktop: ≥1024px, 4 columns--- */
+  @media (min-width: 1024px) {
+    #product-grid-main-container .col-custom {
+      width: 25%;
+      flex: 0 0 25%;
+    }
+  }
+</style>
