@@ -1,0 +1,12 @@
+<!-- Product Grid Container -->
+<div class="row g-3 g-sm-4" id="product-grid-main-container">
+  <%# Spacing between grid items: 1rem on mobile, 1.5rem on larger screens %> <%
+  products.forEach((product, index) => { %>
+  <!-- Product Card Column -->
+  <%# Responsive grid layout: - Mobile (<576px): 1 column (full width) - Tablet
+  (≥576px): 2 columns - Desktop (≥992px): 4 columns %>
+  <div class="col-12 col-sm-6 col-lg-3" id="product-item-col-<%= index %>">
+    <%- include('product-card', { product: product, cardIdSuffix: index }) %>
+  </div>
+  <% }) %>
+</div>

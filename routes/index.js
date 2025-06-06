@@ -21,11 +21,19 @@ router.get("/", function (req, res, next) {
           spots = [];
         }
 
-        res.render("index", {
-          title: "Express",
-          hero: hero,
-          spots: spots,
-          products: [],
+        // Get popular products from database (at least 8 products)
+        db.all("SELECT * FROM products LIMIT 8", [], (err, products) => {
+          if (err) {
+            console.error("Error fetching products:", err);
+            products = [];
+          }
+
+          res.render("index", {
+            title: "Freaky Fashion",
+            hero: hero,
+            spots: spots,
+            products: products,
+          });
         });
       });
     }
