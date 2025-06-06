@@ -4,9 +4,9 @@
     <!-- Hero Row:  image and text  -->
     <div class="row align-items-center" id="hero-content-row">
       <!-- Image Column -->
-      <div class="col-lg-6 order-lg-2" id="hero-image-col">
+      <div class="col-12" id="hero-image-col">
         <!-- Image Wrapper -->
-        <div id="hero-image-wrapper" class="text-center text-lg-start">
+        <div id="hero-image-wrapper" class="text-center">
           <img
             src="<%= hero.image_url || '/placeholder.svg?height=350&width=500' %>"
             alt="<%= hero.title || 'Freaky Fashion Hero' %>"
@@ -16,10 +16,10 @@
         </div>
       </div>
 
-      <!-- Text Column -->
-      <div class="col-lg-6 order-lg-1" id="hero-text-col">
+      <!-- Text Content Column -->
+      <div class="col-12" id="hero-text-col">
         <!-- Text Container -->
-        <div id="hero-text-container" class="text-center text-lg-start">
+        <div id="hero-text-container" class="text-center">
           <!-- Heading -->
           <h2 class="display-4 fw-bold mb-3" id="hero-heading">
             <%= hero.title %>
@@ -33,3 +33,40 @@
     </div>
   </div>
 </section>
+
+<style>
+  @media (min-width: 1024px) {
+    #hero-image-col {
+      order: 2;
+      width: 50%;
+    }
+    #hero-text-col {
+      order: 1;
+      width: 50%;
+    }
+    #hero-image-wrapper {
+      text-align: start;
+    }
+    #hero-text-container {
+      text-align: start;
+    }
+    #hero-content-row {
+      display: flex;
+    }
+  }
+  @media (max-width: 1023px) {
+    #hero-image-col {
+      order: 1;
+      margin-bottom: 2rem;
+    }
+    #hero-text-col {
+      order: 2;
+    }
+    #hero-image-wrapper {
+      text-align: center;
+    }
+    #hero-text-container {
+      text-align: center;
+    }
+  }
+</style>

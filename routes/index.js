@@ -14,11 +14,19 @@ router.get("/", function (req, res, next) {
         hero = null;
       }
 
-      res.render("index", {
-        title: "Express",
-        hero: hero,
-        spots: [],
-        products: [],
+      // Get spots from database
+      db.all("SELECT * FROM spots", [], (err, spots) => {
+        if (err) {
+          console.error("Error fetching spots:", err);
+          spots = [];
+        }
+
+        res.render("index", {
+          title: "Express",
+          hero: hero,
+          spots: spots,
+          products: [],
+        });
       });
     }
   );

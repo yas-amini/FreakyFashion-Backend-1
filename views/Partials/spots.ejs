@@ -1,5 +1,15 @@
-<!-- Spots Section Container - Visible only on large screens (lg) and up -->
-<section class="container my-5 d-none d-lg-block" id="spots-section">
+<!-- Spots Section Container - Visible only on screens >=1024px -->
+<section class="container my-5" id="spots-section">
+  <style>
+    #spots-section {
+      display: none;
+    }
+    @media (min-width: 1024px) {
+      #spots-section {
+        display: block;
+      }
+    }
+  </style>
   <!-- Spots Row: holds the three spot items -->
   <div class="row" id="spots-row">
     <% spots.forEach((spot, index) => { %>
@@ -33,7 +43,6 @@
               border-radius: var(--bs-border-radius);
             "
           >
-            {/* Semi-transparent background */}
             <!-- Spot Text -->
             <h3
               class="text-white text-center fw-bold"
