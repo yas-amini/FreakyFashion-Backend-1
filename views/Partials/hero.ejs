@@ -1,31 +1,29 @@
 <!-- Hero Container -->
-<section class="bg-light py-5" id="hero-section">
-  <div class="container" id="hero-wrapper">
+<section class="bg-light py-5" id="hero">
+  <div class="container" id="wrapper">
     <!-- Hero Row:  image and text  -->
-    <div class="row align-items-center" id="hero-content-row">
+    <div class="row align-items-center" id="content">
       <!-- Image Column -->
-      <div class="col-12" id="hero-image-col">
+      <div class="col-12" id="image-col">
         <!-- Image Wrapper -->
-        <div id="hero-image-wrapper" class="text-center">
+        <div id="image-wrapper" class="text-center">
           <img
             src="<%= hero.image_url || '/placeholder.svg?height=350&width=500' %>"
             alt="<%= hero.title || 'Freaky Fashion Hero' %>"
             class="img-fluid rounded"
-            id="hero-img"
+            id="image"
           />
         </div>
       </div>
 
       <!-- Text Content Column -->
-      <div class="col-12" id="hero-text-col">
+      <div class="col-12" id="text-col">
         <!-- Text Container -->
-        <div id="hero-text-container" class="text-center">
+        <div id="text-wrapper" class="text-center">
           <!-- Heading -->
-          <h2 class="display-4 fw-bold mb-3" id="hero-heading">
-            <%= hero.title %>
-          </h2>
+          <h2 class="display-4 fw-bold mb-3" id="title"><%= hero.title %></h2>
           <!-- Paragraph -->
-          <p class="lead text-muted" id="hero-paragraph">
+          <p class="lead text-muted" id="description">
             <%= hero.description %>
           </p>
         </div>
@@ -36,36 +34,36 @@
 
 <style>
   @media (min-width: 1024px) {
-    #hero-image-col {
+    #image-col {
       order: 2;
       width: 50%;
     }
-    #hero-text-col {
+    #text-col {
       order: 1;
       width: 50%;
     }
-    #hero-image-wrapper {
+    #image-wrapper {
       text-align: start;
     }
-    #hero-text-container {
+    #text-wrapper {
       text-align: start;
     }
-    #hero-content-row {
+    #content {
       display: flex;
     }
   }
   @media (max-width: 1023px) {
-    #hero-image-col {
+    #image-col {
       order: 1;
       margin-bottom: 2rem;
     }
-    #hero-text-col {
+    #text-col {
       order: 2;
     }
-    #hero-image-wrapper {
+    #image-wrapper {
       text-align: center;
     }
-    #hero-text-container {
+    #text-wrapper {
       text-align: center;
     }
   }

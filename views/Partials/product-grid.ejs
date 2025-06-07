@@ -1,11 +1,9 @@
 <!-- Product Grid Container -->
-<div class="row g-3 g-sm-4" id="product-grid-main-container">
-  <%# Spacing between grid items: 1rem on mobile, 1.5rem on larger screens %> <%
-  products.forEach((product, index) => { %>
+<div class="row g-3 g-sm-4" id="grid">
+  <% products.forEach((product, index) => { %>
   <!-- Product Card Column -->
-  <%# Responsive grid layout: - Mobile (<640px): 1 column (full width) - Tablet
-  and up (≥640px): 3 columns %>
-  <div class="col-12 col-custom" id="product-item-col-<%= index %>">
+  >
+  <div class="col-12 col-custom" id="item-<%= index %>">
     <%- include('product-card', { product: product, cardIdSuffix: index }) %>
   </div>
   <% }) %>
@@ -13,13 +11,13 @@
 
 <style>
   /* ---Mobile: <640px, 1 column--- */
-  #product-grid-main-container .col-custom {
+  #grid .col-custom {
     width: 100%;
   }
 
   /*---Tablet and up: ≥640px, 3 columns--- */
   @media (min-width: 640px) {
-    #product-grid-main-container .col-custom {
+    #grid .col-custom {
       width: 33.333%;
       flex: 0 0 33.333%;
     }
