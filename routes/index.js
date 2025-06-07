@@ -75,4 +75,33 @@ router.get("/products/:id", function (req, res, next) {
   });
 });
 
+/* GET search results page */
+router.get("/search", function (req, res, next) {
+  // Get search term from URL query string (e.g., /search?q=tshirt)
+  const query = req.query.q || "";
+
+  // Search database for products with matching names
+  db.all(
+    "SELECT * FROM products WHERE name LIKE ?",
+    [`%${query}%`],
+    (err, products) => {
+      if (err) {
+        console.error("Error searching products:", err);
+        products = [];
+      }
+
+      // Pass to template:
+      // - query: search term
+      // - count: number of products found
+      // - products: array of matching products
+      res.render("search-results", {
+        title: `Sökresultat: ${query}`,
+        query: query,
+        count: products.length,
+        products: products,
+      });
+    }
+  );
+});
+
 module.exports = router;
