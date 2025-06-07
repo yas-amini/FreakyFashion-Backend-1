@@ -22,6 +22,9 @@ var indexRouter = require("./routes/index");
 // Import the user-related routes
 var usersRouter = require("./routes/users");
 
+// Import the admin routes
+var adminRouter = require("./routes/admin");
+
 // Create the Express application instance
 var app = express();
 
@@ -57,6 +60,9 @@ app.use("/", indexRouter);
 
 // Mount the user routes at /users
 app.use("/users", usersRouter);
+
+// Mount the admin routes at /admin
+app.use("/admin", adminRouter);
 
 // Handle 404 errors - if no route matches, create a 404 error
 app.use(function (req, res, next) {
