@@ -1,31 +1,31 @@
-<footer class="bg-light border-top" id="footer">
+<footer class="bg-light border-top" id="footer-container">
   <div class="container py-4 py-md-5">
     <!-- Mobile Accordion Menu -->
-    <div class="d-md-none" id="mobile-menu">
-      <div class="accordion" id="accordion">
+    <div class="d-md-none" id="footer-mobile-menu">
+      <div class="accordion" id="footer-accordion">
         <!-- Accordion Item 1: Shopping -->
-        <div class="accordion-item" id="shop-item">
-          <h2 class="accordion-header" id="shop-heading">
+        <div class="accordion-item" id="footer-shopping-item">
+          <h2 class="accordion-header" id="footer-shopping-heading">
             <button
               class="accordion-button"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#collapseShopping"
+              data-bs-target="#footer-collapse-shopping"
               aria-expanded="true"
-              aria-controls="collapseShopping"
+              aria-controls="footer-collapse-shopping"
               style="background-color: #e7f1ff"
             >
               Shopping
             </button>
           </h2>
           <div
-            id="collapseShopping"
+            id="footer-collapse-shopping"
             class="accordion-collapse collapse show"
-            aria-labelledby="shop-heading"
-            data-bs-parent="#accordion"
+            aria-labelledby="footer-shopping-heading"
+            data-bs-parent="#footer-accordion"
           >
             <div class="accordion-body">
-              <ul class="list-unstyled mb-0" id="shop-list">
+              <ul class="list-unstyled mb-0" id="footer-shopping-list">
                 <li>
                   <a
                     href="#"
@@ -60,27 +60,27 @@
         </div>
 
         <!-- Accordion Item 2: Mina Sidor -->
-        <div class="accordion-item" id="account-item">
-          <h2 class="accordion-header" id="account-heading">
+        <div class="accordion-item" id="footer-account-item">
+          <h2 class="accordion-header" id="footer-account-heading">
             <button
               class="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#collapseMyPages"
+              data-bs-target="#footer-collapse-account"
               aria-expanded="false"
-              aria-controls="collapseMyPages"
+              aria-controls="footer-collapse-account"
             >
               Mina Sidor
             </button>
           </h2>
           <div
-            id="collapseMyPages"
+            id="footer-collapse-account"
             class="accordion-collapse collapse"
-            aria-labelledby="account-heading"
-            data-bs-parent="#accordion"
+            aria-labelledby="footer-account-heading"
+            data-bs-parent="#footer-accordion"
           >
             <div class="accordion-body">
-              <ul class="list-unstyled mb-0" id="account-list">
+              <ul class="list-unstyled mb-0" id="footer-account-list">
                 <li>
                   <a
                     href="#"
@@ -101,27 +101,27 @@
         </div>
 
         <!-- Accordion Item 3: Kundtjänst -->
-        <div class="accordion-item" id="service-item">
-          <h2 class="accordion-header" id="service-heading">
+        <div class="accordion-item" id="footer-service-item">
+          <h2 class="accordion-header" id="footer-service-heading">
             <button
               class="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
-              data-bs-target="#collapseService"
+              data-bs-target="#footer-collapse-service"
               aria-expanded="false"
-              aria-controls="collapseService"
+              aria-controls="footer-collapse-service"
             >
               Kundtjänst
             </button>
           </h2>
           <div
-            id="collapseService"
+            id="footer-collapse-service"
             class="accordion-collapse collapse"
-            aria-labelledby="service-heading"
-            data-bs-parent="#accordion"
+            aria-labelledby="footer-service-heading"
+            data-bs-parent="#footer-accordion"
           >
             <div class="accordion-body">
-              <ul class="list-unstyled mb-0" id="service-list">
+              <ul class="list-unstyled mb-0" id="footer-service-list">
                 <li>
                   <a
                     href="#"
@@ -142,111 +142,5 @@
         </div>
       </div>
     </div>
-
-    <!-- Desktop/Tablet Column -->
-    <div class="d-none d-md-block" id="footer-desktop-columns">
-      <div class="row" id="footer-links-row-desktop">
-        <!-- Column 1: Shopping -->
-        <div class="col-md-3" id="footer-desktop-col-shopping">
-          <h5 class="fw-bold mb-3" id="footer-desktop-heading-shopping">
-            Shopping
-          </h5>
-          <ul class="list-unstyled" id="footer-desktop-list-shopping">
-            <li class="mb-2">
-              <a href="#" class="text-muted text-decoration-none"
-                >Vinterjackor</a
-              >
-            </li>
-            <li class="mb-2">
-              <a href="#" class="text-muted text-decoration-none"
-                >Pufferjackor</a
-              >
-            </li>
-            <li class="mb-2">
-              <a href="#" class="text-muted text-decoration-none">Kappa</a>
-            </li>
-            <li class="mb-2">
-              <a href="#" class="text-muted text-decoration-none"
-                >Trenchcoats</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Column 2: Mina Sidor -->
-        <div class="col-md-3" id="footer-desktop-col-my-pages">
-          <h5 class="fw-bold mb-3" id="footer-desktop-heading-my-pages">
-            Mina Sidor
-          </h5>
-          <ul class="list-unstyled" id="footer-desktop-list-my-pages">
-            <li class="mb-2">
-              <a href="#" class="text-muted text-decoration-none"
-                >Mina Ordrar</a
-              >
-            </li>
-            <li class="mb-2">
-              <a href="#" class="text-muted text-decoration-none">Mitt Konto</a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Kundtjänst -->
-        <div class="col-md-3" id="footer-desktop-col-service">
-          <h5 class="fw-bold mb-3" id="footer-desktop-heading-service">
-            Kundtjänst
-          </h5>
-          <ul class="list-unstyled" id="footer-desktop-list-service">
-            <li class="mb-2">
-              <a href="#" class="text-muted text-decoration-none"
-                >Returnpolicy</a
-              >
-            </li>
-            <li class="mb-2">
-              <a href="#" class="text-muted text-decoration-none"
-                >Integritetspolicy</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Site Features (from desktop wireframe) -->
-        <div class="col-md-3" id="footer-desktop-col-features">
-          <h5 class="fw-bold mb-3" id="footer-desktop-heading-features">
-            Information
-          </h5>
-          <ul class="list-unstyled" id="footer-desktop-list-features">
-            <li class="mb-2 text-muted">Gratis frakt och returer</li>
-            <li class="mb-2 text-muted">Expressfrakt</li>
-            <li class="mb-2 text-muted">Säkra betalningar</li>
-            <li class="mb-2 text-muted">Nyheter varje dag</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Copyright Section: Common for all screen sizes -->
-    <hr class="my-4" />
-    <div class="text-center">
-      <p class="text-muted mb-0">&copy; Freaky Fashion</p>
-    </div>
   </div>
 </footer>
-
-<style>
-  #footer {
-    width: 100%;
-    background-color: #f8f9fa;
-  }
-
-  #footer-copyright-container {
-    padding: 1rem 0;
-  }
-
-  @media (min-width: 1024px) {
-    #footer {
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
-  }
-</style>

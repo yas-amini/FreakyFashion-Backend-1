@@ -1,16 +1,18 @@
-<header class="border-bottom">
+<header id="header-main" class="border-bottom">
   <!-- Main container -->
-  <div class="container-fluid px-0" id="header-main">
+  <div id="header-main-container" class="container-fluid px-0">
     <!-- Top section -->
-    <div class="py-3" id="header-top">
+    <div id="header-top-section" class="py-3">
       <!-- Logo -->
-      <div id="logo" class="text-center mb-3">
+      <div id="header-logo" class="text-center mb-3">
         <a
+          id="header-logo-link"
           href="/"
           class="text-decoration-none d-inline-block w-100"
           aria-label="Freaky Fashion startsida"
         >
           <img
+            id="header-logo-image"
             src="https://placehold.co/1200x400"
             alt="Freaky Fashion Logo"
             class="img-fluid w-100"
@@ -21,55 +23,86 @@
 
       <!-- Search and icons container -->
       <div
-        id="search-icons"
+        id="header-search-icons"
         class="d-flex justify-content-center align-items-center"
       >
         <!-- Search bar -->
-        <div id="search" class="me-3">
-          <form action="/search" method="GET" class="d-flex">
+        <div id="header-search" class="me-3">
+          <form
+            id="header-search-form"
+            action="/search"
+            method="GET"
+            class="d-flex"
+          >
             <input
+              id="header-search-input"
               type="text"
               name="q"
               placeholder="Sök produkt"
               class="form-control me-2"
             />
-            <button type="submit" class="btn btn-dark" aria-label="Sök">
-              <i class="fas fa-search"></i>
+            <button
+              id="header-search-button"
+              type="submit"
+              class="btn btn-dark"
+              aria-label="Sök"
+            >
+              <i id="header-search-icon" class="fas fa-search"></i>
             </button>
           </form>
         </div>
 
         <!-- Icons -->
-        <div id="icons" class="d-flex">
+        <div id="header-icons" class="d-flex">
           <a
+            id="header-favorite-link"
             href="#"
             class="text-dark text-decoration-none me-3"
-            id="favorite"
             aria-label="Favoriter"
           >
-            <i class="far fa-heart fs-5"></i>
+            <i id="header-favorite-icon" class="far fa-heart fs-5"></i>
           </a>
           <a
+            id="header-cart-link"
             href="#"
             class="text-dark text-decoration-none"
-            id="cart"
             aria-label="Varukorg"
           >
-            <i class="fas fa-shopping-cart fs-5"></i>
+            <i id="header-cart-icon" class="fas fa-shopping-cart fs-5"></i>
           </a>
         </div>
       </div>
     </div>
 
     <!-- Navigation links -->
-    <div id="nav" class="border-top">
-      <nav class="py-2" id="menu">
+    <div id="header-nav" class="border-top">
+      <nav id="header-menu" class="py-2">
         <!-- Links-->
-        <div id="links" class="d-flex">
-          <a href="#" class="text-decoration-none text-dark py-1">Nyheter</a>
-          <a href="#" class="text-decoration-none text-dark py-1">Topplistan</a>
-          <a href="#" class="text-decoration-none text-dark py-1">Rea</a>
-          <a href="#" class="text-decoration-none text-dark py-1">Kampanjer</a>
+        <div id="header-links" class="d-flex">
+          <a
+            id="header-link-news"
+            href="#"
+            class="text-decoration-none text-dark py-1"
+            >Nyheter</a
+          >
+          <a
+            id="header-link-toplist"
+            href="#"
+            class="text-decoration-none text-dark py-1"
+            >Topplistan</a
+          >
+          <a
+            id="header-link-sale"
+            href="#"
+            class="text-decoration-none text-dark py-1"
+            >Rea</a
+          >
+          <a
+            id="header-link-campaigns"
+            href="#"
+            class="text-decoration-none text-dark py-1"
+            >Kampanjer</a
+          >
         </div>
       </nav>
     </div>
@@ -78,81 +111,81 @@
 
 <style>
   /* Mobile layout (≤ 640px) */
-  #header-top {
+  #header-top-section {
     display: flex;
     flex-direction: column;
     padding: 0 20px;
   }
 
-  #logo {
+  #header-logo {
     width: 100%;
     padding: 0;
   }
 
-  #logo img {
+  #header-logo-image {
     width: 100%;
     max-width: 100%;
     height: auto;
   }
 
-  #search-icons {
+  #header-search-icons {
     width: 100%;
     flex-wrap: wrap;
     gap: 1rem;
     padding: 0;
   }
 
-  #search {
+  #header-search {
     flex: 1;
     min-width: 200px;
   }
 
-  #nav {
+  #header-nav {
     padding: 0 20px;
   }
 
-  #links {
+  #header-links {
     flex-direction: column;
   }
 
-  #links a {
+  #header-links a {
     padding: 0.5rem 0;
   }
 
   /* Desktop layout (> 640px) */
   @media (min-width: 641px) {
-    #header-top {
+    #header-top-section {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
       padding: 0 20px;
     }
 
-    #logo {
+    #header-logo {
       width: auto;
       padding-right: 20px;
     }
 
-    #logo img {
+    #header-logo-image {
       width: auto;
       max-width: 300px;
     }
 
-    #search-icons {
+    #header-search-icons {
       width: auto;
       padding: 0;
     }
 
-    #nav {
+    #header-nav {
       padding: 0 20px;
     }
 
-    #links {
+    #header-links {
       flex-direction: row;
       gap: 2rem;
     }
 
-    #links a {
+    #header-links a {
       padding: 0.5rem 0;
     }
   }

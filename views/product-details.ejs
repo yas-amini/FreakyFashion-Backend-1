@@ -5,21 +5,21 @@
       <div id="product-image-col">
         <div id="product-image-wrapper">
           <img
+            id="product-image"
             src="<%= product.image_url || '/placeholder.svg?height=600&width=500' %>"
             alt="<%= product.name %>"
             class="img-fluid rounded shadow-sm"
-            id="product-image"
             style="aspect-ratio: 4 / 5; object-fit: cover; width: 100%"
           />
           <button
+            id="product-heart-btn"
             type="button"
             class="btn btn-light btn-sm position-absolute bottom-0 end-0 m-2 rounded-circle"
-            id="product-heart-btn"
             aria-label="Favoritmarkera <%= product.name %>"
             onclick="event.preventDefault(); alert('Favorit klickad för <%= product.name %>');"
           >
             <!-- Heart Icon -->
-            <i class="far fa-heart text-danger" id="product-heart-icon"></i>
+            <i id="product-heart-icon" class="far fa-heart text-danger"></i>
           </button>
         </div>
       </div>
@@ -34,9 +34,9 @@
 
           <form id="product-cart-form">
             <button
+              id="product-cart-btn"
               type="submit"
               class="btn btn-dark btn-lg w-100 w-sm-auto"
-              id="product-cart-btn"
               onclick="event.preventDefault(); alert('Knappen Lägg i varukorg klickad!');"
             >
               Lägg i varukorg

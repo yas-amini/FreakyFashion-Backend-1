@@ -1,30 +1,42 @@
-<div class="container my-4 my-md-5" id="search-container">
-  <!-- Search Results Header -->
-  <section id="search-header" class="mb-4">
-    <div id="search-title">
-      <h1 class="mb-3" id="search-heading">
-        <% if (query && query.trim() !== "") { %> Hittade
-        <span id="result-count" class="fw-bold"><%= count %></span> produkt<%=
-        count !== 1 ? 'er' : '' %> för "<span id="search-term" class="fw-bold"
+<!-- Main Search Results Container -->
+<div class="container my-4 my-md-5" id="searchresults-container">
+  <!-- ===== SEARCH HEADER SECTION ===== -->
+  <!-- Contains the search results title and count -->
+  <section id="searchresults-header" class="mb-4">
+    <div id="searchresults-title">
+      <h1 class="mb-3" id="searchresults-heading">
+        <% if (query && query.trim() !== "") { %>
+        <!-- Search with query results -->
+        Hittade
+        <span id="searchresults-count" class="fw-bold"><%= count %></span>
+        produkt<%= count !== 1 ? 'er' : '' %> för "<span
+          id="searchresults-term"
+          class="fw-bold"
           ><%= query %></span
-        >" <% } else if (count > 0) { %> Visar
-        <span id="result-count" class="fw-bold"><%= count %></span>
-        produkt<%= count !== 1 ? 'er' : '' %> <% } else { %> Inga produkter
-        hittades <% } %>
+        >" <% } else if (count > 0) { %>
+        <!-- Display all products -->
+        Visar
+        <span id="searchresults-count"><%= count %></span>
+        produkt<%= count !== 1 ? 'er' : '' %> <% } else { %>
+        <!-- No products found -->
+        Inga produkter hittades <% } %>
       </h1>
     </div>
   </section>
 
-  <!-- Product Grid or No Results Message -->
-  <section id="search-content" class="mb-4 mb-md-5">
+  <!-- ===== SEARCH CONTENT SECTION ===== -->
+  <!-- Contains either the product grid or no results message -->
+  <section id="searchresults-content" class="mb-4 mb-md-5">
     <% if (products && products.length > 0) { %>
-    <div id="search-grid">
+    <!-- Product Grid: Display when products are found -->
+    <div id="searchresults-grid">
       <%- include('partials/product-grid', { products: products }) %>
     </div>
     <% } else if (query && query.trim() !== "") { %>
-    <div id="search-no-results" class="text-center py-5">
+    <!-- No Results Message: When search returns no matches -->
+    <div id="searchresults-empty" class="text-center py-5">
       <i class="fas fa-search fa-3x text-muted mb-3"></i>
-      <p class="lead text-muted" id="search-no-results-msg">
+      <p class="lead text-muted" id="searchresults-empty-message">
         Tyvärr, vi hittade inga produkter som matchar "<%= query %>".
       </p>
       <p class="text-muted">
@@ -33,9 +45,10 @@
       </p>
     </div>
     <% } else { %>
-    <div id="search-no-products" class="text-center py-5">
+    <!-- Empty State: When no products exist in the system -->
+    <div id="searchresults-empty" class="text-center py-5">
       <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
-      <p class="lead text-muted" id="search-no-products-msg">
+      <p class="lead text-muted" id="searchresults-empty-message">
         Det finns för närvarande inga produkter att visa.
       </p>
       <p class="text-muted">
@@ -45,6 +58,9 @@
     <% } %>
   </section>
 
-  <!-- Site Features Section -->
-  <div id="search-features"><%- include('partials/site-features') %></div>
+  <!-- ===== SITE FEATURES SECTION ===== -->
+  <!-- Includes the common site features component -->
+  <div id="searchresults-features">
+    <%- include('partials/site-features') %>
+  </div>
 </div>

@@ -1,54 +1,60 @@
 <!-- Product Card  -->
 <a
+  id="link-<%= productCardOrder %>"
   href="/products/<%= product.id %>"
   class="text-decoration-none d-block h-100"
-  id="link-<%= cardIdSuffix %>"
 >
-  <div class="card h-100 shadow-sm" id="card-<%= cardIdSuffix %>">
+  <div id="card-<%= productCardOrder %>" class="card h-100 shadow-sm">
     <!-- Image Wrapper for heart icon overlay -->
-    <div class="position-relative" id="img-wrapper-<%= cardIdSuffix %>">
+    <div id="img-wrapper-<%= productCardOrder %>" class="position-relative">
       <!-- Product Image -->
       <img
+        id="img-<%= productCardOrder %>"
         src="<%= product.image_url || '/placeholder.svg?height=600&width=500' %>"
         alt="<%= product.name %>"
         class="card-img-top"
-        id="img-<%= cardIdSuffix %>"
         style="aspect-ratio: 5 / 6; object-fit: cover"
       />
 
       <!-- Heart Icon Container overlaying the image -->
       <div
+        id="heart-wrapper-<%= productCardOrder %>"
         class="position-absolute bottom-0 end-0 p-2"
-        id="heart-wrapper-<%= cardIdSuffix %>"
       >
         <button
+          id="heart-btn-<%= productCardOrder %>"
           type="button"
           class="btn btn-sm btn-light rounded-circle"
           aria-label="Favoritmarkera <%= product.name %>"
-          id="heart-btn-<%= cardIdSuffix %>"
           onclick="event.preventDefault(); alert('Favorit klickad för <%= product.name %>');"
         >
           <!-- Heart Icon-->
           <i
+            id="heart-icon-<%= productCardOrder %>"
             class="far fa-heart text-danger"
-            id="heart-icon-<%= cardIdSuffix %>"
           ></i>
         </button>
       </div>
     </div>
 
     <!-- Text Content Container -->
-    <div class="card-body d-flex flex-column" id="content-<%= cardIdSuffix %>">
+    <div
+      id="content-<%= productCardOrder %>"
+      class="card-body d-flex flex-column"
+    >
       <!-- Product Name -->
-      <h5 class="card-title fs-6 mb-1" id="name-<%= cardIdSuffix %>">
+      <h5 id="name-<%= productCardOrder %>" class="card-title fs-6 mb-1">
         <%= product.name %>
       </h5>
       <!-- Product Brand -->
-      <p class="card-text text-muted small mb-1" id="brand-<%= cardIdSuffix %>">
+      <p
+        id="brand-<%= productCardOrder %>"
+        class="card-text text-muted small mb-1"
+      >
         <%= product.brand %>
       </p>
       <!-- Product Price -->
-      <p class="card-text fw-bold mt-auto" id="price-<%= cardIdSuffix %>">
+      <p id="price-<%= productCardOrder %>" class="card-text fw-bold mt-auto">
         <%= product.price %> SEK
       </p>
     </div>

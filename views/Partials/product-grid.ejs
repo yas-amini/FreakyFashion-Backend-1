@@ -3,7 +3,8 @@
   <% products.forEach((product, index) => { %>
   <!-- Product Card Column -->
   <div class="col-12 col-custom" id="item-<%= index %>">
-    <%- include('product-card', { product: product, cardIdSuffix: index }) %>
+    <%- include('product-card', { product: product, productCardOrder: index })
+    %>
   </div>
   <% }) %>
 </div>

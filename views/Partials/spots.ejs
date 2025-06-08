@@ -1,5 +1,5 @@
 <!-- Spots Section Container - Visible only on screens >=1024px -->
-<section class="container my-5" id="spots">
+<section id="spots" class="container my-5">
   <style>
     #spots {
       display: none;
@@ -11,40 +11,40 @@
     }
   </style>
   <!-- Spots Row: holds the three spot items -->
-  <div class="row" id="row">
+  <div id="row" class="row">
     <% spots.forEach((spot, index) => { %>
     <!-- Spot Item Column (each takes 1/3 of the row on lg screens) -->
-    <div class="col-lg-4" id="item-<%= index %>">
+    <div id="item-<%= index %>" class="col-lg-4">
       <!-- Spot Link: makes the entire spot clickable -->
       <a
+        id="link-<%= index %>"
         href="<%= spot.link || '#' %>"
         class="text-decoration-none d-block"
-        id="link-<%= index %>"
         aria-label="View details for <%= spot.text %>"
       >
         <!-- Spot Content Wrapper: for relative positioning of the overlay -->
-        <div class="position-relative" id="content-<%= index %>">
+        <div id="content-<%= index %>" class="position-relative">
           <!-- Spot Image -->
           <div id="img-wrapper-<%= index %>">
             <img
+              id="img-<%= index %>"
               src="<%= spot.image || '/placeholder.svg?height=250&width=350' %>"
               alt="<%= spot.text || 'Promotional Spot ' + (index + 1) %>"
               class="img-fluid rounded"
-              id="img-<%= index %>"
               style="height: 250px; width: 100%; object-fit: cover"
             />
           </div>
           <!-- Spot Text Overlay -->
           <div
-            class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center p-3"
             id="overlay-<%= index %>"
+            class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center p-3"
             style="
               background-color: rgba(0, 0, 0, 0.4);
               border-radius: var(--bs-border-radius);
             "
           >
             <!-- Spot Text -->
-            <h3 class="text-white text-center fw-bold" id="text-<%= index %>">
+            <h3 id="text-<%= index %>" class="text-white text-center fw-bold">
               <%= spot.text %>
             </h3>
           </div>
