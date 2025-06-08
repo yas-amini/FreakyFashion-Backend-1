@@ -1,5 +1,5 @@
-<footer class="bg-light mt-5 border-top" id="footer">
-  <div class="container py-4 py-md-5" id="content">
+<footer class="bg-light border-top" id="footer">
+  <div class="container py-4 py-md-5">
     <!-- Mobile Accordion Menu -->
     <div class="d-md-none" id="mobile-menu">
       <div class="accordion" id="accordion">
@@ -225,11 +225,28 @@
     </div>
 
     <!-- Copyright Section: Common for all screen sizes -->
-    <hr class="my-4" id="footer-divider" />
-    <div class="text-center" id="footer-copyright-container">
-      <p class="text-muted mb-0" id="footer-copyright-text">
-        &copy; Freaky Fashion
-      </p>
+    <hr class="my-4" />
+    <div class="text-center">
+      <p class="text-muted mb-0">&copy; Freaky Fashion</p>
     </div>
   </div>
 </footer>
+
+<style>
+  #footer {
+    width: 100%;
+    background-color: #f8f9fa;
+  }
+
+  #footer-copyright-container {
+    padding: 1rem 0;
+  }
+
+  @media (min-width: 1024px) {
+    #footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+</style>

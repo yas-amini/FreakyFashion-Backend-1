@@ -1,8 +1,7 @@
 <!-- Product Grid Container -->
-<div class="row g-3 g-sm-4" id="grid">
+<div class="row g-3 g-sm-4 justify-content-center" id="grid">
   <% products.forEach((product, index) => { %>
   <!-- Product Card Column -->
-  >
   <div class="col-12 col-custom" id="item-<%= index %>">
     <%- include('product-card', { product: product, cardIdSuffix: index }) %>
   </div>
@@ -15,11 +14,21 @@
     width: 100%;
   }
 
-  /*---Tablet and up: ≥640px, 3 columns--- */
+  /*---Tablet: ≥640px, 2 columns--- */
   @media (min-width: 640px) {
     #grid .col-custom {
-      width: 33.333%;
-      flex: 0 0 33.333%;
+      width: 50%;
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
+
+  /*---Desktop: ≥1024px, 4 columns--- */
+  @media (min-width: 1024px) {
+    #grid .col-custom {
+      width: 25%;
+      flex: 0 0 25%;
+      max-width: 25%;
     }
   }
 </style>

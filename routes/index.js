@@ -104,4 +104,59 @@ router.get("/search", function (req, res, next) {
   );
 });
 
+// Admin routes
+// GET /admin/products - List all products
+router.get("/admin/products", function (req, res, next) {
+  console.log("Admin products route hit");
+
+  // Get all products from database
+  db.all(
+    "SELECT * FROM products ORDER BY created_at DESC",
+    [],
+    (err, products) => {
+      if (err) {
+        console.error("Error fetching products:", err);
+        products = [];
+      }
+
+      console.log("Products found:", products);
+
+      res.render("admin/products", {
+        title: "Administration: Products",
+        products: products,
+        currentAdminPage: "products",
+        layout: false,
+      });
+    }
+  );
+});
+
+// GET /admin/products/new - Show new product form
+router.get("/admin/products/new", function (req, res, next) {
+  res.render("admin/new-product", {
+    title: "Administration: New Product",
+    layout: false,
+  });
+});
+
+// POST /admin/products - Handle new product submission
+router.post("/admin/products", function (req, res, next) {
+  const { name, description, image, brand, sku, price } = req.body;
+
+  // Insert new product into database
+  db.run(
+    "INSERT INTO products (name, description, image_url, brand, sku, price) VALUES (?, ?, ?, ?, ?, ?)",
+    [name, description, image, brand, sku, price],
+    function (err) {
+      if (err) {
+        console.error("Error creating product:", err);
+        return res.status(500).send("Error creating product");
+      }
+
+      // Redirect to products list after successful creation
+      res.redirect("/admin/products");
+    }
+  );
+});
+
 module.exports = router;

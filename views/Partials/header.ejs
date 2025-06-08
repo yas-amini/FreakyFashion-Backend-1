@@ -2,36 +2,30 @@
   <!-- Main container -->
   <div class="container-fluid px-0" id="header-main">
     <!-- Top section -->
-    <div
-      class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center py-3"
-      id="header-top"
-    >
-      <!-- Logo  -->
-      <div
-        id="header-logo"
-        class="text-center text-sm-start w-100 w-sm-auto mb-3 mb-sm-0"
-      >
+    <div class="py-3" id="header-top">
+      <!-- Logo -->
+      <div id="logo" class="text-center mb-3">
         <a
           href="/"
           class="text-decoration-none d-inline-block w-100"
           aria-label="Freaky Fashion startsida"
         >
           <img
-            src="https://placehold.co/400x200"
+            src="https://placehold.co/1200x400"
             alt="Freaky Fashion Logo"
             class="img-fluid w-100"
-            style="max-height: 50px; object-fit: contain"
+            style="object-fit: contain"
           />
         </a>
       </div>
 
-      <!-- Search and icons-->
+      <!-- Search and icons container -->
       <div
-        class="d-flex flex-row justify-content-center w-100 w-sm-auto px-sm-4"
-        id="header-search-bar"
+        id="search-icons"
+        class="d-flex justify-content-center align-items-center"
       >
         <!-- Search bar -->
-        <div id="header-search" class="me-3">
+        <div id="search" class="me-3">
           <form action="/search" method="GET" class="d-flex">
             <input
               type="text"
@@ -46,7 +40,7 @@
         </div>
 
         <!-- Icons -->
-        <div class="d-flex" id="header-icons">
+        <div id="icons" class="d-flex">
           <a
             href="#"
             class="text-dark text-decoration-none me-3"
@@ -68,10 +62,10 @@
     </div>
 
     <!-- Navigation links -->
-    <div id="header-nav" class="border-top">
-      <nav class="py-2 px-4" id="header-menu">
+    <div id="nav" class="border-top">
+      <nav class="py-2" id="menu">
         <!-- Links-->
-        <div class="d-flex flex-column align-items-start" id="header-links">
+        <div id="links" class="d-flex">
           <a href="#" class="text-decoration-none text-dark py-1">Nyheter</a>
           <a href="#" class="text-decoration-none text-dark py-1">Topplistan</a>
           <a href="#" class="text-decoration-none text-dark py-1">Rea</a>
@@ -81,3 +75,85 @@
     </div>
   </div>
 </header>
+
+<style>
+  /* Mobile layout (≤ 640px) */
+  #header-top {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  #logo {
+    width: 100%;
+    padding: 0;
+  }
+
+  #logo img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  #search-icons {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  #search {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  #nav {
+    padding: 0 20px;
+  }
+
+  #links {
+    flex-direction: column;
+  }
+
+  #links a {
+    padding: 0.5rem 0;
+  }
+
+  /* Desktop layout (> 640px) */
+  @media (min-width: 641px) {
+    #header-top {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    #logo {
+      width: auto;
+      padding-right: 20px;
+    }
+
+    #logo img {
+      width: auto;
+      max-width: 300px;
+    }
+
+    #search-icons {
+      width: auto;
+      padding: 0;
+    }
+
+    #nav {
+      padding: 0 20px;
+    }
+
+    #links {
+      flex-direction: row;
+      gap: 2rem;
+    }
+
+    #links a {
+      padding: 0.5rem 0;
+    }
+  }
+</style>

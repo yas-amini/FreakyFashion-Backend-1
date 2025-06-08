@@ -1,89 +1,163 @@
-<div class="container my-4 my-md-5" id="admin-list-products-page-container">
-  <!-- Top Panel Text -->
-  <div id="admin-main-header-row" class="mb-4">
-    <h1 class="display-5 fw-bold" id="admin-main-heading">Administration</h1>
-  </div>
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      <%= typeof title !== 'undefined' ? title : 'Administration' %>
+    </title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .admin-sidebar {
+        background-color: #fff;
+        min-height: calc(100vh - 56px);
+      }
+      .admin-nav-link.active {
+        font-weight: bold;
+        color: #0d6efd !important;
+      }
+      /* Add styles to keep footer at bottom */
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .content {
+        flex: 1 0 auto;
+      }
+      .footer {
+        flex-shrink: 0;
+        padding: 1rem 0;
+        background-color: #f8f9fa;
+        border-top: 1px solid #dee2e6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Administration Bar -->
+    <header
+      class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow"
+      id="admin-top-bar"
+    >
+      <a
+        class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"
+        href="/admin/products"
+        >Administration</a
+      >
+    </header>
 
-  <!-- Products Content Section (Card) -->
-  <div class="card shadow-sm" id="admin-products-content-card">
-    <div class="card-header bg-light py-3" id="admin-products-card-header">
-      <div class="d-flex justify-content-between align-items-center">
-        <h2 class="h5 mb-0 fw-medium" id="admin-products-section-title">
-          Produkter
-        </h2>
-        <a
-          href="/admin/products/new"
-          class="btn btn-primary btn-sm"
-          id="admin-add-new-product-button"
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Left Sidebar Navigation -->
+        <nav
+          id="admin-sidebar-nav"
+          class="col-md-3 col-lg-2 d-md-block admin-sidebar collapse"
         >
-          <i class="fas fa-plus me-1"></i> Ny produkt
-        </a>
-      </div>
-    </div>
-    <div class="card-body" id="admin-products-card-body">
-      <% if (products && products.length > 0) { %>
-      <div class="table-responsive" id="admin-products-table-wrapper">
-        <table
-          class="table table-striped table-hover caption-top"
-          id="admin-products-table"
-        >
-          <caption id="admin-products-table-caption" class="pb-1">
-            Lista över befintliga produkter.
-          </caption>
-          <thead id="admin-products-table-head">
-            <tr>
-              <th scope="col" id="table-header-name">Namn</th>
-              <th scope="col" id="table-header-sku">SKU</th>
-              <th scope="col" id="table-header-price">Pris</th>
-              <th scope="col" class="text-end" id="table-header-actions">
-                Åtgärder
-              </th>
-            </tr>
-          </thead>
-          <tbody id="admin-products-table-body">
-            <% products.forEach((product, index) => { %>
-            <tr id="admin-product-row-<%= product.id || index %>">
-              <td headers="table-header-name"><%= product.name %></td>
-              <td headers="table-header-sku"><%= product.sku %></td>
-              <td headers="table-header-price"><%= product.price %> SEK</td>
-              <td headers="table-header-actions" class="text-end">
+          <div class="position-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
                 <a
-                  href="/admin/products/edit/<%= product.id %>"
-                  class="btn btn-outline-secondary btn-sm me-1"
-                  title="Redigera <%= product.name %>"
+                  class="nav-link text-dark admin-nav-link <% if(currentAdminPage === 'products') { %>active<% } %>"
+                  href="/admin/products"
                 >
-                  <i class="fas fa-edit"></i>
-                  <span class="d-none d-md-inline">Redigera</span>
+                  <i class="fas fa-box me-2"></i>
+                  Produkter
                 </a>
-                <form
-                  action="/admin/products/delete/<%= product.id %>?_method=DELETE"
-                  method="POST"
-                  class="d-inline"
-                  onsubmit="return confirm('Är du säker på att du vill ta bort <%= product.name %>?');"
+              </li>
+              <!-- Add other admin links here in the future, e.g., Orders, Users -->
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="main-content">
+          <div class="pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2" id="page-title">Produkter</h1>
+          </div>
+
+          <!-- Products List Card -->
+          <div class="card shadow-sm" id="admin-products-content-card">
+            <div class="card-header bg-white py-3">
+              <div class="d-flex justify-content-end">
+                <a
+                  href="/admin/products/new"
+                  class="btn btn-primary btn-sm"
+                  id="admin-add-new-product-button"
                 >
-                  <button
-                    type="submit"
-                    class="btn btn-outline-danger btn-sm"
-                    title="Ta bort <%= product.name %>"
-                  >
-                    <i class="fas fa-trash"></i>
-                    <span class="d-none d-md-inline">Ta bort</span>
-                  </button>
-                </form>
-              </td>
-            </tr>
-            <% }) %>
-          </tbody>
-        </table>
+                  <i class="fas fa-plus me-1"></i> Ny produkt
+                </a>
+              </div>
+            </div>
+            <div class="card-body" id="admin-products-card-body">
+              <% if (products && products.length > 0) { %>
+              <div class="table-responsive" id="admin-products-table-wrapper">
+                <table
+                  class="table table-striped table-hover"
+                  id="admin-products-table"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col">Namn</th>
+                      <th scope="col">SKU</th>
+                      <th scope="col">Pris</th>
+                      <th scope="col" class="text-end">Åtgärder</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% products.forEach((product) => { %>
+                    <tr>
+                      <td><%= product.name %></td>
+                      <td><%= product.sku %></td>
+                      <td><%= product.price %> SEK</td>
+                      <td class="text-end">
+                        <a href="#" class="btn btn-outline-secondary btn-sm"
+                          ><i class="fas fa-edit"></i
+                        ></a>
+                        <a href="#" class="btn btn-outline-danger btn-sm"
+                          ><i class="fas fa-trash"></i
+                        ></a>
+                      </td>
+                    </tr>
+                    <% }) %>
+                  </tbody>
+                </table>
+              </div>
+              <% } else { %>
+              <div class="text-center py-4" id="admin-no-products-message">
+                <p class="lead text-muted">
+                  Inga produkter har lagts till ännu.
+                </p>
+              </div>
+              <% } %>
+            </div>
+          </div>
+        </main>
       </div>
-      <% } else { %>
-      <div class="text-center py-4" id="admin-no-products-message">
-        <p class="lead text-muted">Inga produkter har lagts till ännu.</p>
-        <a href="/admin/products/new" class="btn btn-primary mt-2">
-          <i class="fas fa-plus me-1"></i> Lägg till första produkten
-        </a>
-      </div>
-      <% } %>
     </div>
-  </div>
-</div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container text-center">
+        <p class="mb-0"><i class="far fa-copyright"></i> Educado AB</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
