@@ -1,3 +1,12 @@
+<!-- ===== ADMIN NEW PRODUCT PAGE ===== -->
+<!-- 
+  Admin new product form page:
+  - Top navigation bar
+  - Left sidebar with navigation links
+  - Main content area with product form
+  - Responsive layout
+  - Form validation for required fields
+-->
 <!DOCTYPE html>
 <html lang="sv">
   <head>
@@ -16,40 +25,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <style>
-      body {
-        background-color: #f8f9fa;
-        margin: 0;
-        padding: 0;
-      }
-      .admin-sidebar {
-        background-color: #fff;
-        width: 250px;
-        min-height: 100vh;
-        border-right: 1px solid #dee2e6;
-      }
-      .admin-nav-link.active {
-        font-weight: bold;
-        color: #0d6efd !important;
-      }
-      .footer {
-        padding: 1rem 0;
-        background-color: #f8f9fa;
-        border-top: 1px solid #dee2e6;
-      }
-      #main-content {
-        padding: 1rem;
-        flex: 1;
-      }
-      .page-container {
-        display: flex;
-        min-height: 100vh;
-      }
-    </style>
   </head>
   <body>
     <!-- Top Administration Bar -->
-    <header class="navbar navbar-dark bg-dark p-0 shadow" id="admin-top-bar">
+    <header class="navbar navbar-dark bg-dark p-0 shadow" id="admin-header">
       <a class="navbar-brand px-3 fs-6" href="/admin/products"
         >Administration</a
       >
@@ -57,7 +36,7 @@
 
     <div class="page-container">
       <!-- Left Sidebar Navigation -->
-      <nav id="admin-sidebar-nav" class="admin-sidebar">
+      <nav id="admin-sidebar" class="admin-sidebar">
         <div class="pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
@@ -73,17 +52,21 @@
       </nav>
 
       <!-- Main Content Area -->
-      <main id="main-content">
+      <main id="admin-content">
         <div class="pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2" id="page-title">Ny produkt</h1>
+          <h1 class="h2" id="admin-title">Ny produkt</h1>
         </div>
 
         <!-- New Product Form Card -->
-        <div class="card shadow-sm" id="form-card">
-          <div class="card-body" id="card-body">
-            <form action="/admin/products" method="POST" id="form">
+        <div class="card shadow-sm" id="admin-product-form-card">
+          <div class="card-body" id="admin-product-form-body">
+            <form
+              action="/admin/products"
+              method="POST"
+              id="admin-product-form"
+            >
               <!-- Namn -->
-              <div class="mb-3" id="name-group">
+              <div class="mb-3" id="admin-product-name-group">
                 <label for="name" class="form-label"
                   >Namn <span class="text-danger">*</span></label
                 >
@@ -97,7 +80,7 @@
               </div>
 
               <!-- Beskrivning -->
-              <div class="mb-3" id="desc-group">
+              <div class="mb-3" id="admin-product-desc-group">
                 <label for="description" class="form-label"
                   >Beskrivning <span class="text-danger">*</span></label
                 >
@@ -111,7 +94,7 @@
               </div>
 
               <!-- Bild -->
-              <div class="mb-3" id="img-group">
+              <div class="mb-3" id="admin-product-img-group">
                 <label for="image" class="form-label"
                   >Bild (URL) <span class="text-danger">*</span></label
                 >
@@ -123,13 +106,13 @@
                   placeholder="https://example.com/image.jpg"
                   required
                 />
-                <div class="form-text" id="img-help">
+                <div class="form-text" id="admin-product-img-help">
                   Ange en fullständig URL till produktbilden.
                 </div>
               </div>
 
               <!-- Märke -->
-              <div class="mb-3" id="brand-group">
+              <div class="mb-3" id="admin-product-brand-group">
                 <label for="brand" class="form-label"
                   >Märke <span class="text-danger">*</span></label
                 >
@@ -143,7 +126,7 @@
               </div>
 
               <!-- SKU -->
-              <div class="mb-3" id="sku-group">
+              <div class="mb-3" id="admin-product-sku-group">
                 <label for="sku" class="form-label"
                   >SKU <span class="text-danger">*</span></label
                 >
@@ -157,7 +140,7 @@
               </div>
 
               <!-- Pris -->
-              <div class="mb-3" id="price-group">
+              <div class="mb-3" id="admin-product-price-group">
                 <label for="price" class="form-label"
                   >Pris (SEK) <span class="text-danger">*</span></label
                 >
@@ -174,8 +157,12 @@
               </div>
 
               <!-- Submit Button -->
-              <div id="submit-group" class="pt-2">
-                <button type="submit" class="btn btn-primary" id="submit-btn">
+              <div id="admin-product-submit-group" class="pt-2">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="admin-product-submit-btn"
+                >
                   <i class="fas fa-plus me-1"></i> Lägg till produkt
                 </button>
               </div>

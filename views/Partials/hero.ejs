@@ -1,4 +1,10 @@
-<!-- Hero Container -->
+<!-- ===== HERO SECTION ===== -->
+<!-- 
+  Hero section featuring:
+  - Large promotional image
+  - Title and description
+  - Responsive layout (stacked on mobile, side-by-side on desktop)
+-->
 <section id="hero-section" class="bg-light py-5">
   <div id="hero-wrapper" class="container">
     <!-- Hero Row: image and text -->
@@ -33,40 +39,3 @@
     </div>
   </div>
 </section>
-
-<style>
-  @media (min-width: 1024px) {
-    #hero-image-column {
-      order: 2;
-      width: 50%;
-    }
-    #hero-text-column {
-      order: 1;
-      width: 50%;
-    }
-    #hero-image-wrapper {
-      text-align: start;
-    }
-    #hero-text-wrapper {
-      text-align: start;
-    }
-    #hero-content-row {
-      display: flex;
-    }
-  }
-  @media (max-width: 1023px) {
-    #hero-image-column {
-      order: 1;
-      margin-bottom: 2rem;
-    }
-    #hero-text-column {
-      order: 2;
-    }
-    #hero-image-wrapper {
-      text-align: center;
-    }
-    #hero-text-wrapper {
-      text-align: center;
-    }
-  }
-</style>

@@ -1,40 +1,51 @@
-<div id="product-container">
+<!-- ===== PRODUCT DETAILS PAGE ===== -->
+<!-- 
+  Product details page layout:
+  - Product image with favorite button
+  - Product information (name, brand, description, price)
+  - Add to cart button
+  - Similar products section (visible on tablet and up)
+  - Site features section
+-->
+<div id="product-details-container">
   <!-- Main Product Details -->
-  <section id="product-main">
-    <div id="product-content" class="px-3 py-4">
-      <div id="product-image-col">
-        <div id="product-image-wrapper">
+  <section id="product-details-main">
+    <div id="product-details-content" class="px-3 py-4">
+      <div id="product-details-image-col">
+        <div id="product-details-image-wrapper">
           <img
-            id="product-image"
+            id="product-details-image"
             src="<%= product.image_url || '/placeholder.svg?height=600&width=500' %>"
             alt="<%= product.name %>"
-            class="img-fluid rounded shadow-sm"
-            style="aspect-ratio: 4 / 5; object-fit: cover; width: 100%"
+            class="img-fluid rounded shadow-sm product-image"
           />
           <button
-            id="product-heart-btn"
+            id="product-details-favorite-btn"
             type="button"
             class="btn btn-light btn-sm position-absolute bottom-0 end-0 m-2 rounded-circle"
             aria-label="Favoritmarkera <%= product.name %>"
             onclick="event.preventDefault(); alert('Favorit klickad för <%= product.name %>');"
           >
             <!-- Heart Icon -->
-            <i id="product-heart-icon" class="far fa-heart text-danger"></i>
+            <i
+              id="product-details-favorite-icon"
+              class="far fa-heart text-danger"
+            ></i>
           </button>
         </div>
       </div>
 
       <!-- Product Info Column -->
-      <div id="product-info-col">
-        <div id="product-text">
-          <h1 id="product-name"><%= product.name %></h1>
-          <p id="product-brand"><%= product.brand %></p>
-          <p id="product-description"><%= product.description %></p>
-          <p id="product-price"><%= product.price %> SEK</p>
+      <div id="product-details-info-col">
+        <div id="product-details-text">
+          <h1 id="product-details-name"><%= product.name %></h1>
+          <p id="product-details-brand"><%= product.brand %></p>
+          <p id="product-details-description"><%= product.description %></p>
+          <p id="product-details-price"><%= product.price %> SEK</p>
 
-          <form id="product-cart-form">
+          <form id="product-details-cart-form">
             <button
-              id="product-cart-btn"
+              id="product-details-cart-btn"
               type="submit"
               class="btn btn-dark btn-lg w-100 w-sm-auto"
               onclick="event.preventDefault(); alert('Knappen Lägg i varukorg klickad!');"
@@ -48,78 +59,17 @@
   </section>
 
   <!-- Similar Products Section - Visible on ≥640px -->
-  <section id="product-similar" class="px-3">
-    <h2 id="product-similar-heading" class="mb-5">Liknande produkter</h2>
-    <div id="product-similar-grid" class="px-2">
+  <section id="product-details-similar" class="px-3">
+    <h2 id="product-details-similar-heading" class="mb-5">
+      Liknande produkter
+    </h2>
+    <div id="product-details-similar-grid" class="px-2">
       <%- include('partials/product-grid', { products: similarProducts }) %>
     </div>
   </section>
 
   <!-- Site Features -->
-  <div id="product-features"><%- include('partials/site-features') %></div>
+  <div id="product-details-features">
+    <%- include('partials/site-features') %>
+  </div>
 </div>
-
-<style>
-  #product-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  @media (min-width: 640px) {
-    #product-content {
-      flex-direction: row;
-      align-items: start;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-
-    #product-image-col {
-      width: 50%;
-    }
-
-    #product-info-col {
-      width: 50%;
-    }
-  }
-
-  /* Add padding to similar products grid */
-  #product-similar-grid {
-    margin: 0 -0.5rem;
-  }
-
-  #product-similar-grid .col-custom {
-    padding: 0 0.5rem;
-  }
-
-  /* Similar products visibility and layout */
-  #product-similar {
-    display: none;
-  }
-
-  @media (min-width: 640px) {
-    #product-similar {
-      display: block;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-
-    #product-similar-grid {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    #product-similar-grid .col-custom {
-      width: 33.333%;
-      flex: 0 0 33.333%;
-      max-width: 33.333%;
-    }
-  }
-
-  /* Mobile layout for similar products */
-  #product-similar-grid .col-custom {
-    width: 100%;
-  }
-</style>

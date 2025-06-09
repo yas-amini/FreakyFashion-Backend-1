@@ -1,104 +1,112 @@
-<header id="header-main" class="border-bottom">
-  <!-- Main container -->
-  <div id="header-main-container" class="container-fluid px-0">
-    <!-- Top section -->
-    <div id="header-top-section" class="py-3">
-      <!-- Logo -->
-      <div id="header-logo" class="text-center mb-3">
+<!-- ===== SITE HEADER COMPONENT ===== -->
+<!-- 
+  Main site header containing:
+  - Logo and branding
+  - Search functionality
+  - User actions (favorites, cart)
+  - Main navigation menu
+  - Responsive design for mobile and desktop
+-->
+<header id="site-header" class="border-bottom">
+  <!-- Header Container -->
+  <div id="site-header-container" class="container-fluid px-0">
+    <!-- Header Top Section: Logo, Search, User Actions -->
+    <div id="site-header-top" class="py-3">
+      <!-- Brand Logo -->
+      <div id="site-header-logo" class="text-center mb-3">
         <a
-          id="header-logo-link"
+          id="site-header-logo-link"
           href="/"
           class="text-decoration-none d-inline-block w-100"
           aria-label="Freaky Fashion startsida"
         >
           <img
-            id="header-logo-image"
+            id="site-header-logo-image"
             src="https://placehold.co/1200x400"
             alt="Freaky Fashion Logo"
-            class="img-fluid w-100"
-            style="object-fit: contain"
+            class="img-fluid w-100 object-fit-contain"
           />
         </a>
       </div>
 
-      <!-- Search and icons container -->
+      <!-- Search and User Actions Section -->
       <div
-        id="header-search-icons"
+        id="site-header-actions"
         class="d-flex justify-content-center align-items-center"
       >
-        <!-- Search bar -->
-        <div id="header-search" class="me-3">
+        <!-- Search Form -->
+        <div id="site-header-search" class="me-3">
           <form
-            id="header-search-form"
+            id="site-header-search-form"
             action="/search"
             method="GET"
             class="d-flex"
           >
             <input
-              id="header-search-input"
+              id="site-header-search-input"
               type="text"
               name="q"
               placeholder="Sök produkt"
               class="form-control me-2"
             />
             <button
-              id="header-search-button"
+              id="site-header-search-button"
               type="submit"
               class="btn btn-dark"
               aria-label="Sök"
             >
-              <i id="header-search-icon" class="fas fa-search"></i>
+              <i id="site-header-search-icon" class="fas fa-search"></i>
             </button>
           </form>
         </div>
 
-        <!-- Icons -->
-        <div id="header-icons" class="d-flex">
+        <!-- User Action Icons -->
+        <div id="site-header-user-actions" class="d-flex">
           <a
-            id="header-favorite-link"
+            id="site-header-favorites-link"
             href="#"
             class="text-dark text-decoration-none me-3"
             aria-label="Favoriter"
           >
-            <i id="header-favorite-icon" class="far fa-heart fs-5"></i>
+            <i id="site-header-favorites-icon" class="far fa-heart fs-5"></i>
           </a>
           <a
-            id="header-cart-link"
+            id="site-header-cart-link"
             href="#"
             class="text-dark text-decoration-none"
             aria-label="Varukorg"
           >
-            <i id="header-cart-icon" class="fas fa-shopping-cart fs-5"></i>
+            <i id="site-header-cart-icon" class="fas fa-shopping-cart fs-5"></i>
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Navigation links -->
-    <div id="header-nav" class="border-top">
-      <nav id="header-menu" class="py-2">
-        <!-- Links-->
-        <div id="header-links" class="d-flex">
+    <!-- Main Navigation Section -->
+    <div id="site-header-navigation" class="border-top">
+      <nav id="site-header-nav" class="py-2">
+        <!-- Navigation Links -->
+        <div id="site-header-nav-links" class="d-flex">
           <a
-            id="header-link-news"
+            id="site-header-nav-link-news"
             href="#"
             class="text-decoration-none text-dark py-1"
             >Nyheter</a
           >
           <a
-            id="header-link-toplist"
+            id="site-header-nav-link-toplist"
             href="#"
             class="text-decoration-none text-dark py-1"
             >Topplistan</a
           >
           <a
-            id="header-link-sale"
+            id="site-header-nav-link-sale"
             href="#"
             class="text-decoration-none text-dark py-1"
             >Rea</a
           >
           <a
-            id="header-link-campaigns"
+            id="site-header-nav-link-campaigns"
             href="#"
             class="text-decoration-none text-dark py-1"
             >Kampanjer</a
@@ -108,85 +116,3 @@
     </div>
   </div>
 </header>
-
-<style>
-  /* Mobile layout (≤ 640px) */
-  #header-top-section {
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px;
-  }
-
-  #header-logo {
-    width: 100%;
-    padding: 0;
-  }
-
-  #header-logo-image {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-
-  #header-search-icons {
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 0;
-  }
-
-  #header-search {
-    flex: 1;
-    min-width: 200px;
-  }
-
-  #header-nav {
-    padding: 0 20px;
-  }
-
-  #header-links {
-    flex-direction: column;
-  }
-
-  #header-links a {
-    padding: 0.5rem 0;
-  }
-
-  /* Desktop layout (> 640px) */
-  @media (min-width: 641px) {
-    #header-top-section {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    #header-logo {
-      width: auto;
-      padding-right: 20px;
-    }
-
-    #header-logo-image {
-      width: auto;
-      max-width: 300px;
-    }
-
-    #header-search-icons {
-      width: auto;
-      padding: 0;
-    }
-
-    #header-nav {
-      padding: 0 20px;
-    }
-
-    #header-links {
-      flex-direction: row;
-      gap: 2rem;
-    }
-
-    #header-links a {
-      padding: 0.5rem 0;
-    }
-  }
-</style>

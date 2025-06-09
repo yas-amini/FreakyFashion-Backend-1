@@ -1,3 +1,14 @@
+<!-- ===== MAIN LAYOUT TEMPLATE ===== -->
+<!-- 
+  Base layout template for all pages:
+  - HTML5 structure with Swedish language
+  - Responsive viewport meta tag
+  - Bootstrap 5.3.0 for styling
+  - Font Awesome 6.0.0 for icons
+  - Custom styles from style.css
+  - Sticky footer layout
+  - Dynamic page title
+-->
 <!DOCTYPE html>
 <html lang="sv">
   <head>
@@ -16,29 +27,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-
-      main {
-        flex: 1 0 auto;
-      }
-
-      #footer {
-        flex-shrink: 0;
-        margin-top: auto;
-      }
-    </style>
+    <!-- Custom CSS -->
+    <link href="/stylesheets/style.css" rel="stylesheet" />
   </head>
   <body>
     <!-- Header -->

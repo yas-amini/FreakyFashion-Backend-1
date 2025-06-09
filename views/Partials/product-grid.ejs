@@ -1,35 +1,17 @@
-<!-- Product Grid Container -->
-<div class="row g-3 g-sm-4 justify-content-center" id="grid">
+<!-- ===== PRODUCT GRID SECTION ===== -->
+<!-- 
+  Responsive product grid layout:
+  - Mobile: 1 column
+  - Tablet: 2 columns
+  - Desktop: 4 columns
+  - Uses product-card partial for each item
+-->
+<div class="row g-3 g-sm-4 justify-content-center" id="product-grid">
   <% products.forEach((product, index) => { %>
   <!-- Product Card Column -->
-  <div class="col-12 col-custom" id="item-<%= index %>">
+  <div class="col-12 col-custom" id="product-grid-item-<%= index %>">
     <%- include('product-card', { product: product, productCardOrder: index })
     %>
   </div>
   <% }) %>
 </div>
-
-<style>
-  /* ---Mobile: <640px, 1 column--- */
-  #grid .col-custom {
-    width: 100%;
-  }
-
-  /*---Tablet: ≥640px, 2 columns--- */
-  @media (min-width: 640px) {
-    #grid .col-custom {
-      width: 50%;
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
-  }
-
-  /*---Desktop: ≥1024px, 4 columns--- */
-  @media (min-width: 1024px) {
-    #grid .col-custom {
-      width: 25%;
-      flex: 0 0 25%;
-      max-width: 25%;
-    }
-  }
-</style>

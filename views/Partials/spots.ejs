@@ -1,50 +1,45 @@
-<!-- Spots Section Container - Visible only on screens >=1024px -->
-<section id="spots" class="container my-5">
-  <style>
-    #spots {
-      display: none;
-    }
-    @media (min-width: 1024px) {
-      #spots {
-        display: block;
-      }
-    }
-  </style>
+<!-- ===== SPOTS SECTION ===== -->
+<!-- 
+  Promotional spots section:
+  - Three equal-width promotional spots
+  - Each spot has an image with text overlay
+  - Visible only on desktop (≥1024px)
+  - Fully clickable areas with hover effects
+-->
+<section id="spots-section" class="container my-5">
   <!-- Spots Row: holds the three spot items -->
-  <div id="row" class="row">
+  <div id="spots-row" class="row">
     <% spots.forEach((spot, index) => { %>
     <!-- Spot Item Column (each takes 1/3 of the row on lg screens) -->
-    <div id="item-<%= index %>" class="col-lg-4">
+    <div id="spot-item-<%= index %>" class="col-lg-4">
       <!-- Spot Link: makes the entire spot clickable -->
       <a
-        id="link-<%= index %>"
+        id="spot-link-<%= index %>"
         href="<%= spot.link || '#' %>"
         class="text-decoration-none d-block"
         aria-label="View details for <%= spot.text %>"
       >
         <!-- Spot Content Wrapper: for relative positioning of the overlay -->
-        <div id="content-<%= index %>" class="position-relative">
+        <div id="spot-content-<%= index %>" class="position-relative">
           <!-- Spot Image -->
-          <div id="img-wrapper-<%= index %>">
+          <div id="spot-image-wrapper-<%= index %>">
             <img
-              id="img-<%= index %>"
+              id="spot-image-<%= index %>"
               src="<%= spot.image || '/placeholder.svg?height=250&width=350' %>"
               alt="<%= spot.text || 'Promotional Spot ' + (index + 1) %>"
-              class="img-fluid rounded"
-              style="height: 250px; width: 100%; object-fit: cover"
+              class="img-fluid rounded spot-image"
             />
           </div>
           <!-- Spot Text Overlay -->
           <div
-            id="overlay-<%= index %>"
-            class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center p-3"
-            style="
-              background-color: rgba(0, 0, 0, 0.4);
-              border-radius: var(--bs-border-radius);
-            "
+            id="spot-overlay-<%= index %>"
+            class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center p-3 spot-overlay"
           >
             <!-- Spot Text -->
-            <h3 id="text-<%= index %>" class="text-white text-center fw-bold">
+            <h3
+              id="spot-text-<%= index %>"
+              class="text-white text-center fw-bold"
+            >
               <%= spot.text %>
             </h3>
           </div>
