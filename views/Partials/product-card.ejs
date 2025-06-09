@@ -8,19 +8,19 @@
   - Responsive design with consistent aspect ratio
 -->
 <a
-  id="product-card-link-<%= productCardOrder %>"
+  id="card-link-<%= productCardOrder %>"
   href="/products/<%= product.id %>"
   class="text-decoration-none d-block h-100"
 >
-  <div id="product-card-<%= productCardOrder %>" class="card h-100 shadow-sm">
+  <div id="card-<%= productCardOrder %>" class="card h-100 shadow-sm">
     <!-- Product Image Section -->
     <div
-      id="product-card-image-wrapper-<%= productCardOrder %>"
+      id="card-image-wrapper-<%= productCardOrder %>"
       class="position-relative"
     >
       <!-- Main Product Image -->
       <img
-        id="product-card-image-<%= productCardOrder %>"
+        id="card-image-<%= productCardOrder %>"
         src="<%= product.image_url || '/placeholder.svg?height=600&width=500' %>"
         alt="<%= product.name %>"
         class="card-img-top"
@@ -29,18 +29,18 @@
 
       <!-- Favorite Button Overlay -->
       <div
-        id="product-card-favorite-wrapper-<%= productCardOrder %>"
+        id="card-favorite-wrapper-<%= productCardOrder %>"
         class="position-absolute bottom-0 end-0 p-2"
       >
         <button
-          id="product-card-favorite-button-<%= productCardOrder %>"
+          id="card-favorite-button-<%= productCardOrder %>"
           type="button"
           class="btn btn-sm btn-light rounded-circle"
           aria-label="Favoritmarkera <%= product.name %>"
           onclick="event.preventDefault(); alert('Favorit klickad för <%= product.name %>');"
         >
           <i
-            id="product-card-favorite-icon-<%= productCardOrder %>"
+            id="card-favorite-icon-<%= productCardOrder %>"
             class="far fa-heart text-danger"
           ></i>
         </button>
@@ -49,26 +49,23 @@
 
     <!-- Product Information Section -->
     <div
-      id="product-card-content-<%= productCardOrder %>"
+      id="card-content-<%= productCardOrder %>"
       class="card-body d-flex flex-column"
     >
       <!-- Product Title -->
-      <h5
-        id="product-card-title-<%= productCardOrder %>"
-        class="card-title fs-6 mb-1"
-      >
+      <h5 id="card-title-<%= productCardOrder %>" class="card-title fs-6 mb-1">
         <%= product.name %>
       </h5>
       <!-- Product Brand -->
       <p
-        id="product-card-brand-<%= productCardOrder %>"
+        id="card-brand-<%= productCardOrder %>"
         class="card-text text-muted small mb-1"
       >
         <%= product.brand %>
       </p>
       <!-- Product Price -->
       <p
-        id="product-card-price-<%= productCardOrder %>"
+        id="card-price-<%= productCardOrder %>"
         class="card-text fw-bold mt-auto"
       >
         <%= product.price %> SEK

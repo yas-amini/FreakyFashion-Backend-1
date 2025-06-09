@@ -7,45 +7,42 @@
   - Similar products section (visible on tablet and up)
   - Site features section
 -->
-<div id="product-details-container">
+<div id="product-container">
   <!-- Main Product Details -->
-  <section id="product-details-main">
-    <div id="product-details-content" class="px-3 py-4">
-      <div id="product-details-image-col">
-        <div id="product-details-image-wrapper">
+  <section id="product-main">
+    <div id="product-content" class="px-3 py-4">
+      <div id="product-image-col">
+        <div id="product-image-wrapper">
           <img
-            id="product-details-image"
+            id="product-image"
             src="<%= product.image_url || '/placeholder.svg?height=600&width=500' %>"
             alt="<%= product.name %>"
             class="img-fluid rounded shadow-sm product-image"
           />
           <button
-            id="product-details-favorite-btn"
+            id="product-favorite-btn"
             type="button"
             class="btn btn-light btn-sm position-absolute bottom-0 end-0 m-2 rounded-circle"
             aria-label="Favoritmarkera <%= product.name %>"
             onclick="event.preventDefault(); alert('Favorit klickad för <%= product.name %>');"
           >
             <!-- Heart Icon -->
-            <i
-              id="product-details-favorite-icon"
-              class="far fa-heart text-danger"
-            ></i>
+            <i id="product-favorite-icon" class="far fa-heart text-danger"></i>
           </button>
         </div>
       </div>
 
       <!-- Product Info Column -->
-      <div id="product-details-info-col">
-        <div id="product-details-text">
-          <h1 id="product-details-name"><%= product.name %></h1>
-          <p id="product-details-brand"><%= product.brand %></p>
-          <p id="product-details-description"><%= product.description %></p>
-          <p id="product-details-price"><%= product.price %> SEK</p>
+      <div id="product-info-col">
+        <div id="product-text">
+          <h1 id="product-name"><%= product.name %></h1>
+          <p id="product-brand"><%= product.brand %></p>
+          <p id="product-description"><%= product.description %></p>
+          <p id="product-price"><%= product.price %> SEK</p>
 
-          <form id="product-details-cart-form">
+          <form id="product-cart-form">
             <button
-              id="product-details-cart-btn"
+              id="product-cart-btn"
               type="submit"
               class="btn btn-dark btn-lg w-100 w-sm-auto"
               onclick="event.preventDefault(); alert('Knappen Lägg i varukorg klickad!');"
@@ -59,17 +56,13 @@
   </section>
 
   <!-- Similar Products Section - Visible on ≥640px -->
-  <section id="product-details-similar" class="px-3">
-    <h2 id="product-details-similar-heading" class="mb-5">
-      Liknande produkter
-    </h2>
-    <div id="product-details-similar-grid" class="px-2">
+  <section id="product-similar" class="px-3">
+    <h2 id="product-similar-heading" class="mb-5">Liknande produkter</h2>
+    <div id="product-similar-grid" class="px-2">
       <%- include('partials/product-grid', { products: similarProducts }) %>
     </div>
   </section>
 
   <!-- Site Features -->
-  <div id="product-details-features">
-    <%- include('partials/site-features') %>
-  </div>
+  <div id="product-features"><%- include('partials/site-features') %></div>
 </div>

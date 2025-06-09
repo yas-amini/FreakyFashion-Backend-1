@@ -28,7 +28,7 @@
   </head>
   <body>
     <!-- Top Administration Bar -->
-    <header class="navbar navbar-dark bg-dark p-0 shadow" id="admin-header">
+    <header id="admin-header" class="navbar navbar-dark bg-dark p-0 shadow">
       <a class="navbar-brand px-3 fs-6" href="/admin/products"
         >Administration</a
       >
@@ -54,19 +54,15 @@
       <!-- Main Content Area -->
       <main id="admin-content">
         <div class="pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2" id="admin-title">Ny produkt</h1>
+          <h1 id="admin-title" class="h2">Ny produkt</h1>
         </div>
 
         <!-- New Product Form Card -->
-        <div class="card shadow-sm" id="admin-product-form-card">
-          <div class="card-body" id="admin-product-form-body">
-            <form
-              action="/admin/products"
-              method="POST"
-              id="admin-product-form"
-            >
+        <div id="admin-form-card" class="card shadow-sm">
+          <div id="admin-form-body" class="card-body">
+            <form id="admin-form" action="/admin/products" method="POST">
               <!-- Namn -->
-              <div class="mb-3" id="admin-product-name-group">
+              <div id="admin-name-group" class="mb-3">
                 <label for="name" class="form-label"
                   >Namn <span class="text-danger">*</span></label
                 >
@@ -80,7 +76,7 @@
               </div>
 
               <!-- Beskrivning -->
-              <div class="mb-3" id="admin-product-desc-group">
+              <div id="admin-desc-group" class="mb-3">
                 <label for="description" class="form-label"
                   >Beskrivning <span class="text-danger">*</span></label
                 >
@@ -94,7 +90,7 @@
               </div>
 
               <!-- Bild -->
-              <div class="mb-3" id="admin-product-img-group">
+              <div id="admin-img-group" class="mb-3">
                 <label for="image" class="form-label"
                   >Bild (URL) <span class="text-danger">*</span></label
                 >
@@ -106,13 +102,13 @@
                   placeholder="https://example.com/image.jpg"
                   required
                 />
-                <div class="form-text" id="admin-product-img-help">
+                <div id="admin-img-help" class="form-text">
                   Ange en fullständig URL till produktbilden.
                 </div>
               </div>
 
               <!-- Märke -->
-              <div class="mb-3" id="admin-product-brand-group">
+              <div id="admin-brand-group" class="mb-3">
                 <label for="brand" class="form-label"
                   >Märke <span class="text-danger">*</span></label
                 >
@@ -126,7 +122,7 @@
               </div>
 
               <!-- SKU -->
-              <div class="mb-3" id="admin-product-sku-group">
+              <div id="admin-sku-group" class="mb-3">
                 <label for="sku" class="form-label"
                   >SKU <span class="text-danger">*</span></label
                 >
@@ -140,7 +136,7 @@
               </div>
 
               <!-- Pris -->
-              <div class="mb-3" id="admin-product-price-group">
+              <div id="admin-price-group" class="mb-3">
                 <label for="price" class="form-label"
                   >Pris (SEK) <span class="text-danger">*</span></label
                 >
@@ -157,11 +153,11 @@
               </div>
 
               <!-- Submit Button -->
-              <div id="admin-product-submit-group" class="pt-2">
+              <div id="admin-submit-group" class="pt-2">
                 <button
                   type="submit"
+                  id="admin-submit-btn"
                   class="btn btn-primary"
-                  id="admin-product-submit-btn"
                 >
                   <i class="fas fa-plus me-1"></i> Lägg till produkt
                 </button>

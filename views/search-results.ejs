@@ -6,24 +6,24 @@
   - Empty state messages for no results
   - Site features section
 -->
-<div id="search-container" class="container my-4 my-md-5">
+<div id="results" class="container my-4 my-md-5">
   <!-- ===== SEARCH HEADER SECTION ===== -->
   <!-- Contains the search results title and count -->
-  <section id="search-header" class="mb-4">
-    <div id="search-title">
-      <h1 id="search-heading" class="mb-3">
+  <section id="results-header" class="mb-4">
+    <div id="results-title">
+      <h1 id="results-heading" class="mb-3">
         <% if (query && query.trim() !== "") { %>
         <!-- Search with query results -->
         Hittade
-        <span id="search-count" class="fw-bold"><%= count %></span>
+        <span id="results-count" class="fw-bold"><%= count %></span>
         produkt<%= count !== 1 ? 'er' : '' %> för "<span
-          id="search-query"
+          id="results-query"
           class="fw-bold"
           ><%= query %></span
         >" <% } else if (count > 0) { %>
         <!-- Display all products -->
         Visar
-        <span id="search-count" class="fw-bold"><%= count %></span>
+        <span id="results-count" class="fw-bold"><%= count %></span>
         produkt<%= count !== 1 ? 'er' : '' %> <% } else { %>
         <!-- No products found -->
         Inga produkter hittades <% } %>
@@ -33,35 +33,32 @@
 
   <!-- ===== SEARCH CONTENT SECTION ===== -->
   <!-- Contains either the product grid or no results message -->
-  <section id="search-content" class="mb-4 mb-md-5">
+  <section id="results-content" class="mb-4 mb-md-5">
     <% if (products && products.length > 0) { %>
     <!-- Product Grid: Display when products are found -->
-    <div id="search-grid">
+    <div id="results-grid">
       <%- include('partials/product-grid', { products: products }) %>
     </div>
     <% } else if (query && query.trim() !== "") { %>
     <!-- No Results Message: When search returns no matches -->
-    <div id="search-empty" class="text-center py-5">
-      <i id="search-empty-icon" class="fas fa-search fa-3x text-muted mb-3"></i>
-      <p id="search-empty-message" class="lead text-muted">
+    <div id="results-empty" class="text-center py-5">
+      <i id="results-icon" class="fas fa-search fa-3x text-muted mb-3"></i>
+      <p id="results-message" class="lead text-muted">
         Tyvärr, vi hittade inga produkter som matchar "<%= query %>".
       </p>
-      <p id="search-empty-suggestion" class="text-muted">
+      <p id="results-suggestion" class="text-muted">
         Prova att söka efter något annat eller kolla våra
         <a href="/">populära produkter</a>.
       </p>
     </div>
     <% } else { %>
     <!-- Empty State: When no products exist in the system -->
-    <div id="search-empty" class="text-center py-5">
-      <i
-        id="search-empty-icon"
-        class="fas fa-box-open fa-3x text-muted mb-3"
-      ></i>
-      <p id="search-empty-message" class="lead text-muted">
+    <div id="results-empty" class="text-center py-5">
+      <i id="results-icon" class="fas fa-box-open fa-3x text-muted mb-3"></i>
+      <p id="results-message" class="lead text-muted">
         Det finns för närvarande inga produkter att visa.
       </p>
-      <p id="search-empty-suggestion" class="text-muted">
+      <p id="results-suggestion" class="text-muted">
         Kom tillbaka senare eller besök vår <a href="/">startsida</a>.
       </p>
     </div>
@@ -70,5 +67,5 @@
 
   <!-- ===== SITE FEATURES SECTION ===== -->
   <!-- Includes the common site features component -->
-  <div id="search-features"><%- include('partials/site-features') %></div>
+  <div id="results-features"><%- include('partials/site-features') %></div>
 </div>
