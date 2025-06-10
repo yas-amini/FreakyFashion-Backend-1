@@ -11,23 +11,24 @@ router.get("/", function (req, res, next) {
     (err, hero) => {
       if (err) {
         console.error("Error fetching hero content:", err);
-        hero = null;
+        hero = null; // If there's an error, set hero to null
       }
 
       // Get spots from database
       db.all("SELECT * FROM spots", [], (err, spots) => {
         if (err) {
           console.error("Error fetching spots:", err);
-          spots = [];
+          spots = []; // If there's an error, set spots to an empty array
         }
 
         // Get popular products from database (at least 8 products)
         db.all("SELECT * FROM products LIMIT 8", [], (err, products) => {
           if (err) {
             console.error("Error fetching products:", err);
-            products = [];
+            products = []; // If there's an error, set products to an empty array
           }
 
+          // Render the index view with the fetched data
           res.render("index", {
             title: "Freaky Fashion",
             hero: hero,
@@ -42,17 +43,17 @@ router.get("/", function (req, res, next) {
 
 /* GET product details page */
 router.get("/products/:id", function (req, res, next) {
-  const productId = req.params.id;
+  const productId = req.params.id; // Get the product ID from the URL
 
-  // Get the product details
+  // Get the product details from the database
   db.get("SELECT * FROM products WHERE id = ?", [productId], (err, product) => {
     if (err) {
       console.error("Error fetching product:", err);
-      return res.status(500).send("Error fetching product");
+      return res.status(500).send("Error fetching product"); // Return error if product fetch fails
     }
 
     if (!product) {
-      return res.status(404).send("Product not found");
+      return res.status(404).send("Product not found"); // Return 404 if product is not found
     }
 
     // Get exactly 3 similar products (excluding the current product)
@@ -62,9 +63,10 @@ router.get("/products/:id", function (req, res, next) {
       (err, similarProducts) => {
         if (err) {
           console.error("Error fetching similar products:", err);
-          similarProducts = [];
+          similarProducts = []; // If there's an error, set similarProducts to an empty array
         }
 
+        // Render the product-details view with the product and similar products
         res.render("product-details", {
           title: product.name,
           product: product,
@@ -87,7 +89,7 @@ router.get("/search", function (req, res, next) {
     (err, products) => {
       if (err) {
         console.error("Error searching products:", err);
-        products = [];
+        products = []; // If there's an error, set products to an empty array
       }
 
       // Pass to template:
@@ -116,11 +118,12 @@ router.get("/admin/products", function (req, res, next) {
     (err, products) => {
       if (err) {
         console.error("Error fetching products:", err);
-        products = [];
+        products = []; // If there's an error, set products to an empty array
       }
 
       console.log("Products found:", products);
 
+      // Render the admin products view with the fetched products
       res.render("admin/products", {
         title: "Administration: Products",
         products: products,
@@ -133,6 +136,7 @@ router.get("/admin/products", function (req, res, next) {
 
 // GET /admin/products/new - Show new product form
 router.get("/admin/products/new", function (req, res, next) {
+  // Render the new product form view
   res.render("admin/new-product", {
     title: "Administration: New Product",
     layout: false,
@@ -141,7 +145,7 @@ router.get("/admin/products/new", function (req, res, next) {
 
 // POST /admin/products - Handle new product submission
 router.post("/admin/products", function (req, res, next) {
-  const { name, description, image, brand, sku, price } = req.body;
+  const { name, description, image, brand, sku, price } = req.body; // Extract product details from request body
 
   // Insert new product into database
   db.run(
@@ -150,7 +154,7 @@ router.post("/admin/products", function (req, res, next) {
     function (err) {
       if (err) {
         console.error("Error creating product:", err);
-        return res.status(500).send("Error creating product");
+        return res.status(500).send("Error creating product"); // Return error if product creation fails
       }
 
       // Redirect to products list after successful creation
