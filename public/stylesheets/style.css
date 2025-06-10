@@ -26,81 +26,81 @@ main {
 
 /* ===== SITE HEADER STYLES ===== */
 /* Mobile Layout (≤ 640px) */
-#site-header-top {
+#header-top {
   display: flex;
   flex-direction: column;
   padding: 0 20px;
 }
 
-#site-header-logo {
+#header-logo {
   width: 100%;
   padding: 0;
 }
 
-#site-header-logo-image {
+#header-logo-image {
   width: 100%;
   max-width: 100%;
   height: auto;
 }
 
-#site-header-actions {
+#header-actions {
   width: 100%;
   flex-wrap: wrap;
   gap: 1rem;
   padding: 0;
 }
 
-#site-header-search {
+#header-search {
   flex: 1;
   min-width: 200px;
 }
 
-#site-header-navigation {
+#header-navigation {
   padding: 0 20px;
 }
 
-#site-header-nav-links {
+#header-nav-links {
   flex-direction: column;
 }
 
-#site-header-nav-links a {
+#header-nav-links a {
   padding: 0.5rem 0;
 }
 
 /* Desktop Layout (> 640px) */
 @media (min-width: 641px) {
-  #site-header-top {
+  #header-top {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
   }
 
-  #site-header-logo {
+  #header-logo {
     width: auto;
     padding-right: 20px;
   }
 
-  #site-header-logo-image {
+  #header-logo-image {
     width: auto;
     max-width: 300px;
   }
 
-  #site-header-actions {
+  #header-actions {
     width: auto;
     padding: 0;
   }
 
-  #site-header-navigation {
+  #header-navigation {
     padding: 0 20px;
   }
 
-  #site-header-nav-links {
+  #header-nav-links {
     flex-direction: row;
     gap: 2rem;
   }
 
-  #site-header-nav-links a {
+  #header-nav-links a {
     padding: 0.5rem 0;
   }
 }
@@ -153,14 +153,35 @@ main {
 }
 
 /* ===== SITE FEATURES STYLES ===== */
-/* Mobile: <640px, 1 column (vertical stack) */
+/* Mobile: <640px, 1 column (vertical stack) - Align left */
+.feature-item-content {
+  text-align: left; /* Keep this for overall alignment */
+  display: flex !important; /* FORCED FLEX - THIS IS KEY */
+  align-items: center; /* Vertically align items in the middle */
+  gap: 1rem; /* Space between the icon and the text */
+  width: 100%; /* Ensure the link takes full width */
+}
+
+/* Adjust margins on icon and text within the feature item */
+/* Ensure no default margins are pushing things apart */
+.feature-item-content i, /* Target the icon directly */
+.feature-item-content p {
+  /* Target the paragraph directly */
+  margin: 0 !important; /* Remove all default margins */
+  padding: 0 !important; /* Remove all default padding */
+}
+
 #features-row .col-custom {
   width: 100%;
   margin-bottom: 1rem;
 }
 
-/* Tablet: ≥640px, 2 columns */
+/* Tablet: ≥640px, 2 columns - Re-align center for larger screens */
 @media (min-width: 640px) {
+  .feature-item-content {
+    text-align: center; /* Center the content for tablet/desktop layout */
+    justify-content: center; /* Center flex items horizontally */
+  }
   #features-row .col-custom {
     width: 50%;
     flex: 0 0 50%;
@@ -271,7 +292,6 @@ body {
 .admin-sidebar {
   background-color: #fff;
   width: 250px;
-  min-height: 100vh;
   border-right: 1px solid #dee2e6;
 }
 
@@ -294,6 +314,7 @@ body {
 .page-container {
   display: flex;
   min-height: 100vh;
+  align-items: stretch;
 }
 
 /* ===== SPOTS SECTION STYLES ===== */
@@ -324,3 +345,46 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: var(--bs-border-radius);
 }
+
+/* ===== FOOTER COMPONENT ===== */
+/* Default: Show mobile accordion, hide desktop columns */
+.footer-mobile {
+  display: block;
+}
+.footer-desktop {
+  display: none;
+}
+
+/* For screens 640px and wider: Hide mobile accordion, show desktop columns */
+@media (min-width: 640px) {
+  .footer-mobile {
+    display: none !important; /* Force hide mobile accordion */
+  }
+  .footer-desktop {
+    display: block !important; /* Force show desktop columns */
+  }
+
+  /* Force desktop columns to be horizontal with flexbox */
+  /* Increased specificity for footer-row and footer-col */
+  .footer-desktop .footer-row {
+    /* More specific selector */
+    display: flex !important; /* THIS IS THE CRITICAL CHANGE */
+    flex-wrap: wrap !important; /* Ensure wrapping */
+    gap: 2rem !important; /* Spacing between columns */
+    justify-content: space-between !important; /* Distribute columns evenly */
+  }
+  .footer-desktop .footer-row .footer-col {
+    /* More specific selector */
+    width: calc(
+      33.333% - (2rem * 2 / 3)
+    ) !important; /* Calculate width for 3 columns with gap */
+    flex: 0 0 auto !important; /* Prevent shrinking and define base size */
+    margin-bottom: 0 !important; /* Remove mobile vertical spacing */
+  }
+}
+
+/* You might want to add some default margin-bottom for mobile columns if they stack */
+.footer-col {
+  margin-bottom: 1rem; /* Adjust as needed for mobile stacking */
+}
+/* Ensure this is outside the media query for global application */
