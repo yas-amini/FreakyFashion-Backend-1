@@ -1,19 +1,18 @@
 <!-- ===== MAIN LAYOUT TEMPLATE ===== -->
 <!-- 
   Base layout template for all pages:
-  - HTML5 structure with Swedish language
   - Responsive viewport meta tag
-  - Bootstrap 5.3.0 for styling
-  - Font Awesome 6.0.0 for icons
+  - Bootstrap for styling
+  - Font Awesome for icons
   - Custom styles from style.css
   - Sticky footer layout
-  - Dynamic page title
 -->
 <!DOCTYPE html>
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Dynamically sets the page title. If a 'title' variable is passed, it uses that; otherwise, it defaults to 'Freaky Fashion'. -->
     <title>
       <%= typeof title !== 'undefined' ? title : 'Freaky Fashion' %>
     </title>
@@ -32,6 +31,7 @@
   </head>
   <body>
     <!-- Header -->
+    <!-- Includes the header partial, containing the site's main navigation and branding. -->
     <%- include('partials/header') %>
 
     <!-- Main Content -->

@@ -11,21 +11,23 @@
   <!-- Contains the search results title and count -->
   <section id="results-header" class="mb-4">
     <div id="results-title">
+      <!-- Main heading for search results or product display -->
       <h1 id="results-heading" class="mb-3">
         <% if (query && query.trim() !== "") { %>
-        <!-- Search with query results -->
+        <!-- Displays results for a specific search query -->
         Hittade
         <span id="results-count" class="fw-bold"><%= count %></span>
+        <!-- Handles pluralization for 'produkt' (product) -->
         produkt<%= count !== 1 ? 'er' : '' %> för "<span
           id="results-query"
           class="fw-bold"
           ><%= query %></span
         >" <% } else if (count > 0) { %>
-        <!-- Display all products -->
+        <!-- Displays a message when showing all products -->
         Visar
         <span id="results-count" class="fw-bold"><%= count %></span>
         produkt<%= count !== 1 ? 'er' : '' %> <% } else { %>
-        <!-- No products found -->
+        <!-- Displays a message when no products are found -->
         Inga produkter hittades <% } %>
       </h1>
     </div>
@@ -35,12 +37,12 @@
   <!-- Contains either the product grid or no results message -->
   <section id="results-content" class="mb-4 mb-md-5">
     <% if (products && products.length > 0) { %>
-    <!-- Product Grid: Display when products are found -->
+    <!-- Displays the product grid if products are found -->
     <div id="results-grid">
       <%- include('partials/product-grid', { products: products }) %>
     </div>
     <% } else if (query && query.trim() !== "") { %>
-    <!-- No Results Message: When search returns no matches -->
+    <!-- Shows a message when a search query yields no results -->
     <div id="results-empty" class="text-center py-5">
       <i id="results-icon" class="fas fa-search fa-3x text-muted mb-3"></i>
       <p id="results-message" class="lead text-muted">
@@ -52,7 +54,7 @@
       </p>
     </div>
     <% } else { %>
-    <!-- Empty State: When no products exist in the system -->
+    <!-- Displays a message when no products are available in the entire system -->
     <div id="results-empty" class="text-center py-5">
       <i id="results-icon" class="fas fa-box-open fa-3x text-muted mb-3"></i>
       <p id="results-message" class="lead text-muted">
