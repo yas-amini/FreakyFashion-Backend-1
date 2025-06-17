@@ -1,10 +1,13 @@
+//Import the Express library — so we can use it to handle web requests.
 const express = require("express");
+//Create a router object from Express — this is where we define our app’s GET/POST routes.
 const router = express.Router();
+//Import the database connection — so this file can run SQL queries using that connection.
 const db = require("../config/database");
 
-/* GET home page. */
+/* Client(browser) sends a GET request the home page ("/") */
 router.get("/", function (req, res, next) {
-  // Get hero content from database
+  // Run SQL to get 1 active hero content from the database
   db.get(
     "SELECT * FROM hero_content WHERE is_active = 1 LIMIT 1",
     [],
@@ -14,21 +17,21 @@ router.get("/", function (req, res, next) {
         hero = null; // If there's an error, set hero to null
       }
 
-      // Get spots from database
+      // Get all spots from database/Run SQL to get all spots
       db.all("SELECT * FROM spots", [], (err, spots) => {
         if (err) {
           console.error("Error fetching spots:", err);
           spots = []; // If there's an error, set spots to an empty array
         }
 
-        // Get popular products from database (at least 8 products)
+        // Get 8 popular products from database
         db.all("SELECT * FROM products LIMIT 8", [], (err, products) => {
           if (err) {
             console.error("Error fetching products:", err);
             products = []; // If there's an error, set products to an empty array
           }
 
-          // Render the index view with the fetched data
+          // Render a web page using this template and this data, and send it to the user's browser
           res.render("index", {
             title: "Freaky Fashion",
             hero: hero,
