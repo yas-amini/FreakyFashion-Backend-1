@@ -1,10 +1,17 @@
-// A config file that sets up and exports the connection to your database.
+// =============================================
+// 1. REQUIRED DEPENDENCIES
+// =============================================
 
-// Import the SQLite3 library so we can use SQLite in this project. Turn on extra logging and debugging info with verbose
+// SQLite3 with verbose mode for detailed logging
 const sqlite3 = require("sqlite3").verbose();
-// Import Node's built-in path module — it helps build file paths in a way that works on any operating system
+// Node's path module for cross-platform file paths
 const path = require("path");
-//"Create a new connection to a database file called product-database.db, which is located in the data folder above this file.
+
+// =============================================
+// 2. DATABASE CONFIGURATION
+// =============================================
+
+// Create database connection to product-database.db
 const db = new sqlite3.Database(
   path.join(__dirname, "../data/product-database.db"),
   //If there's an error connecting to the database, print an error message. If not, log that the connection was successful
@@ -17,4 +24,9 @@ const db = new sqlite3.Database(
   }
 );
 
+// =============================================
+// 3. EXPORT
+// =============================================
+
+// Export database connection for use in other files
 module.exports = db;

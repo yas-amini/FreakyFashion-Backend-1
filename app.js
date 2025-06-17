@@ -79,10 +79,9 @@ app.use(express.static(path.join(__dirname, "public")));
 // 6. ROUTE REGISTRATION
 // =============================================
 
-// Set up main, user, and admin routes
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/admin", adminRouter);
+// Set up main and admin routes
+app.use("/", indexRouter); // Public routes
+app.use("/admin", adminRouter); // Admin routes
 
 // =============================================
 // 7. ERROR HANDLING

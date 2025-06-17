@@ -1,9 +1,17 @@
+// =============================================
+// 1. REQUIRED DEPENDENCIES
+// =============================================
+
 //Import the Express library — so we can use it to handle web requests.
 const express = require("express");
 //Create a router object from Express — this is where we define our app’s GET/POST routes.
 const router = express.Router();
 //Import the database connection — so this file can run SQL queries using that connection.
 const db = require("../config/database");
+
+// =============================================
+// 2. PUBLIC ROUTES
+// =============================================
 
 /* Client(browser) sends a GET request the home page ("/") */
 router.get("/", function (req, res, next) {
@@ -108,6 +116,10 @@ router.get("/search", function (req, res, next) {
     }
   );
 });
+
+// =============================================
+// 3. ADMIN ROUTES
+// =============================================
 
 // Admin routes
 // GET /admin/products - List all products
